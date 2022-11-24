@@ -57,6 +57,11 @@ function _authorizeUpgrade(address newContract) internal override onlyOwner {}
         );
         emit Recieved(names[_usd], msg.sender, _amount);
     }
+     function BuyNat(string memory network)public payable whenNotPaused {
+     
+     network="MATIC";
+     emit Recieved(network, msg.sender,msg.value);
+    }   
 
     /**
      * @dev Owner Authorizes the user's redeem request
