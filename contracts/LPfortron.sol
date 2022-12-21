@@ -5,12 +5,12 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
 contract LiquidityPoolTron is Ownable,Pausable {
-  
-   
+
+
     function unpause() public onlyOwner {
         _unpause();
     }
-    
+
     function pause() public onlyOwner {
         _pause();
     }
@@ -48,7 +48,7 @@ contract LiquidityPoolTron is Ownable,Pausable {
      */
     mapping(address => mapping(uint8 => uint256)) public liquidityPool;
     mapping(address => mapping(uint8 => bool)) public unstakedMax;
-    
+
 
     /**
      * No of times the same user has staked in the Liquidity Pool
@@ -149,6 +149,7 @@ epochover=_over;
            _amount<= balance *80/100 ,
             "Treasury Pool: Amount is Zero or Greater than Stake"
         );
+        require(_amount > 0, "Amount cannot be 0");
          require( !unstakedMax[msg.sender][_usd],"unstake full later first");
          unstakedMax[msg.sender][_usd]=true;
         IERC20(USDStable[_usd]).transfer(msg.sender, _amount);
@@ -159,7 +160,7 @@ epochover=_over;
 function _unstakeAll(uint8 _usd) internal whenNotPaused {
 
         uint256 balance = liquidityPool[msg.sender][_usd];
-        
+
         require (epochover,"yet to unstake");
         require( unstakedMax[msg.sender][_usd],"unstake half first");
         IERC20(USDStable[_usd]).transfer(msg.sender,balance);
