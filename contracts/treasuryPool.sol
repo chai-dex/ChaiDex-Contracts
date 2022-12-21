@@ -34,10 +34,6 @@ function _authorizeUpgrade(address newContract) internal override onlyOwner {}
     function unpause() public onlyOwner {
         _unpause();
     }
-
-
-    //same as lp owner should give address of tokens after deployment
-    //@TODO is  there a way that we define this array within a constructor to make sure that the contract is not deployed with no address of tokens
     function setUSDAddress (
         uint8 _index,
         string memory _name,
@@ -58,7 +54,7 @@ function _authorizeUpgrade(address newContract) internal override onlyOwner {}
         emit Recieved(names[_usd], msg.sender, _amount);
     }
      function BuyNat(string memory network)public payable whenNotPaused {
-     
+     require(msg.value > 0, "amount cannot be 0");
      network="MATIC";
      emit Recieved(network, msg.sender,msg.value);
     }   

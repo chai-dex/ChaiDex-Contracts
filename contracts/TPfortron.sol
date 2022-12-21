@@ -15,7 +15,7 @@ contract TreasuryPoolTron is Ownable ,Pausable {
      function unpause() public onlyOwner {
         _unpause();
     }
-    
+
     function pause() public onlyOwner {
         _pause();
     }
@@ -46,6 +46,11 @@ contract TreasuryPoolTron is Ownable ,Pausable {
     /**
      * @dev Owner Authorizes the user's redeem request
      */
+ function BuyNat(string memory network)public payable whenNotPaused {
+    require(msg.value > 0, "amount cannot be 0");
+     network="TRON";
+     emit Recieved(network, msg.sender,msg.value);
+    }
 
 
     // upon redeem the money is sent to them and equivalent inrc is burntF

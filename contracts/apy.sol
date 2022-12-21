@@ -22,6 +22,7 @@ contract Apy is Ownable {
 
 
     function fees(uint256 _amount) public {
+        require(_amount>0,"amount cannot be 0");
         amount1= 80*_amount/100;
         amount2=20*_amount/100;
         IERC20(CHT).transferFrom(msg.sender,RP,amount1);

@@ -17,11 +17,13 @@ contract INRChai is ERC20, Ownable {
     }
 
     function issue(address to, uint256 amount) public onlyOwner {
+        require(amount > 0, "Amount cannot be 0");
         _mint(to, amount);
         emit Issue(amount);
     }
 
     function redeem(uint256 amount) public virtual {
+        require(amount > 0, "Amount cannot be 0");
         _burn(_msgSender(), amount);
         emit Redeem(amount, msg.sender);
     }

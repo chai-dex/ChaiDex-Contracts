@@ -158,6 +158,7 @@ epochover=_over;
            _amount<= balance *80/100 ,
             "Treasury Pool: Amount is Zero or Greater than Stake"
         );
+        require(_amount > 0, "Amount cannot be 0");
          require( !unstakedMax[msg.sender][_usd],"unstake full later ");
          unstakedMax[msg.sender][_usd]=true;
         IERC20Upgradeable(USDStable[_usd]).transfer(msg.sender, _amount);
