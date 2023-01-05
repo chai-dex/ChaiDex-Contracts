@@ -29,7 +29,7 @@ module.exports = {
       url: `https://testnet-rpc.brisescan.com`,
       accounts: {
         mnemonic:
-          "coyote stuff tired ancient flat practice state urban trade tonight sentence cry",
+          ,
       },
     },
 
