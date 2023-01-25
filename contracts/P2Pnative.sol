@@ -168,6 +168,7 @@ uint256 _tradeTime=block.timestamp+_endtime;
         require((data.currentBalance+_amount)<(data.MaxBalance),"The trade no longer has funds");
         require(block.timestamp<data.endtime,"This trade has ended");
          uint256 FeeTranfer=data.feeAmount;
+         require(_amount>FeeTranfer,"deposit too low");
          if(FeeTranfer!=0)
          {
               feeCollected+=FeeTranfer;
