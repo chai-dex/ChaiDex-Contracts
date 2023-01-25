@@ -96,6 +96,21 @@ The buyer or seller will have to pay fee before initiating the deposit overridin
 
 8.setUSDAddress --onlyOwner -- params(index,Name,token contract address) 
 
+#### Events Emitted 
+event tradeCreated (uint256 _Tradeid,address Seller,uint256 _amount);
+
+event tradeCloneCreated (uint256 _TradeCloneid,address Seller);
+
+event BuyerDeposit(uint256 _TradeCloneID,address Buyer,uint256 _amount);
+
+event SwapComplete(uint256 _swapID,uint256 Parent,address Buyer);
+
+event swapCreated(uint256 _SwapID,address Buyer);
+
+event Sellerwithdraw(uint256 _TradeCloneid,address Seller,uint256 _amount);
+
+event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
+
 ## Test USD token(only for testing)
 
 Standard token to test on testnet
