@@ -56,13 +56,42 @@ This involves the requirement of payment of platform fee in terms of Chai Tokens
 
 
 Functions and parameters
-1.DepositBuyer --address _seller, --seller address     --In ERC contract /ChainX
+1.depositSeller --address _seller, --seller address     --In ERC contract /ChainX
                   uint256 _id, -- unique TradeID which is orgin in the current chain
                  uint256 _amount, -- TradeDeposit Amount
                  uint8 _tokenIndex, -- Tokens are mapped to their addresses so the right token for deposit is chosen
                  uint256 _endtime -- It is the duration for which the Trade should exist starting from then
-2.setTradeClone(OnlyOwner) 
 
+
+2.setTradeCloneID(OnlyOwner) --uint256 _id, 
+address _seller ,
+uint256 _endtime,
+uint256 _maxAmount,
+uint8 _sellerTokenIndex,
+uint256 _feetoBepaid
+
+3.depositBuyer --uint256 _id, // This is the ID of a TradeClone for a trade existing on oposite chain
+ uint256 _amount // the amount to be deposited 
+
+4. setSwapID(uint256  _id,uint256 _parentID,address _buyer,uint256 _withdrawamount,uint256 _feeAmount) --OnlyOwner
+
+here _id is the SwapID that we generate for the deposit in other chain
+
+parentID is the TradeID from which the buyer will withdraw 
+
+feeAmount is the fee that will be deducted from withdraw amount before sending it to him.
+
+5.withDrawBuyer(uint256 _id)
+Here The ID is swapID that was updated earlier 
+
+6. refundSeller(uint256 _id)
+Here ID is the trade ID so that after time is over the seller can take back any remaining funds.
+
+7. Only in INRC -- PayFeeCHT(uint256 _tradeid,uint256 _amount)
+
+The buyer or seller will have to pay fee before initiating the deposit overriding which will lose their deposit amount.
+
+8.setUSDAddress --onlyOwner -- params(index,Name,token contract address) 
 
 ## Test USD token(only for testing)
 
