@@ -39,30 +39,24 @@ The ChaiT contract is  default  erc20 contract.<br />
 
 
 ## DEX Logic / HTLC
-This contract is used to store the dex exchange currencies until a trade is either completed with the successful exchange or a refund after 24 hours. It involves swap between native and INRC tokens only . It takes passphrase of both users and compares and only the unlocks required funds for unlock
 
-1.deposit -- payable-- params( 
-        address seller,
-        uint256 amount,
-        uint256 id,
-        string calldata passphrase,
-        address buyer,
-        uint256 chainIDBuyer,
-        uint256 amount2) -- native tokens<br />
+### The Working and Flow 
+A seller deposits a sum of tokenX in chainX in the ERC20 contract.
+He quotes an equivalent INRC he expects to receive per token.
+These details of the maximum INRC a buyer can deposit and the is cloned onto the INRC chain where buyers can deposit.
+The INRC deposited is directly sent to the seller after deducting the Info update charges in crosschain.
 
-2.depositINRC -- params( address seller,
-        uint256 amount,
-        uint256 id,
-        string calldata passphrase,
-        address buyer,
-        uint256 chainIDBuyer,
-        uint256 amount2) -- to deposit INRC tokens for trade -- <br />
+Now once a buyer deposits to the INRC contract with the tradeID the amount of tokenX he should recieve is updated on ChainX. 
+The trade is time limited and hence the buyer should go to chainX and withdraw his amount before the trade is over(upon which tokenX gets refunded regardless of the success of buyer swap).
 
-3.withDraw --payable --params(uint256 id, string calldata password) -- requires password and directly sends funds to buyer address only <br />
-4.withDrawINRC --params(uint256 id, string calldata password)--requires password and directly sends funds to buyer address only <br />
-5.reFund --payable--params(uint256 id) -- refunds if nobody withdraws after 24 hrs to the seller only<br />
-6.refFundINRC --params(uint256 id) -- refunds if nobody withdraws after 24 hrs to the seller only<br />
-7.compareDigest --internal --params( string memory digest, string memory secret) -- to check password befor withdraw<br />
+Same goes for the other way round 
+The seller deposits INRC ine exchange for TokenX in chainX which is updated in ChainX where the buyers deposit TokenX for a swap and withdraws equivalent INRC
+
+This involves the requirement of payment of platform fee in terms of Chai Tokens in violation of which the trade will not exist.
+
+
+Functions and parameters
+
 
 
 ## Test USD token(only for testing)
