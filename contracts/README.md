@@ -56,7 +56,12 @@ This involves the requirement of payment of platform fee in terms of Chai Tokens
 
 
 Functions and parameters
-
+1.DepositBuyer --address _seller, --seller address     --In ERC contract /ChainX
+                  uint256 _id, -- unique TradeID which is orgin in the current chain
+                 uint256 _amount, -- TradeDeposit Amount
+                 uint8 _tokenIndex, -- Tokens are mapped to their addresses so the right token for deposit is chosen
+                 uint256 _endtime -- It is the duration for which the Trade should exist starting from then
+2.setTradeClone(OnlyOwner) 
 
 
 ## Test USD token(only for testing)
