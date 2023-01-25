@@ -170,9 +170,10 @@ uint256 _tradeTime=block.timestamp+_endtime;
         require(block.timestamp<data.endtime,"This trade has ended");
          uint8 _tokenIndex=data.SellerGetTokenIndex;
          uint256 FeeTranfer=data.feeAmount;
+         require(_amount>FeeTranfer,"amount too low");
          if(FeeTranfer!=0)
          {
-              IERC20Upgradeable(Whitelistedtokens[_tokenIndex]).transferFrom(msg.sender,address(this), _amount);
+              IERC20Upgradeable(Whitelistedtokens[_tokenIndex]).transferFrom(msg.sender,address(this), FeeTranfer);
                feeCollected[_tokenIndex]+=FeeTranfer;
               data.feeAmount=0;
          }
