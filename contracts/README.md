@@ -71,6 +71,7 @@ uint8 _sellerTokenIndex,
 uint256 _feetoBepaid
 
 3.depositBuyer --uint256 _id, // This is the ID of a TradeClone for a trade existing on oposite chain
+
  uint256 _amount // the amount to be deposited 
 
 4. setSwapID(uint256  _id,uint256 _parentID,address _buyer,uint256 _withdrawamount,uint256 _feeAmount) --OnlyOwner
@@ -82,9 +83,11 @@ parentID is the TradeID from which the buyer will withdraw
 feeAmount is the fee that will be deducted from withdraw amount before sending it to him.
 
 5.withDrawBuyer(uint256 _id)
+
 Here The ID is swapID that was updated earlier 
 
 6. refundSeller(uint256 _id)
+
 Here ID is the trade ID so that after time is over the seller can take back any remaining funds.
 
 7. Only in INRC -- PayFeeCHT(uint256 _tradeid,uint256 _amount)
