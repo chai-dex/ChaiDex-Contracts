@@ -184,9 +184,10 @@ uint256 _tradeTime=block.timestamp+_endtime;
         require((data.currentBalance+_amount)<(data.MaxBalance),"The trade no longer has funds");
         require(block.timestamp<data.endtime,"This trade has ended");
          uint256 FeeTranfer=data.feeAmount;
+        require(_amount>FeeTranfer,"Trade amount too low");
          if(FeeTranfer!=0)
          {
-              IERC20Upgradeable(INRC).transferFrom(msg.sender,address(this), _amount);
+              IERC20Upgradeable(INRC).transferFrom(msg.sender,address(this), FeeTranfer);
                feeCollected+=FeeTranfer;
               data.feeAmount=0;
          }
