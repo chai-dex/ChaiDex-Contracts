@@ -18,7 +18,21 @@ INRC will be on the bitgert chain and the treasury pool , liquidty pool are mult
 ![WhatsApp Image 2022-12-21 at 6 04 13 PM](https://user-images.githubusercontent.com/81789395/208907078-1a14ec8a-202f-4a7a-a1e1-e0008366a934.jpeg)
 
 ## DEX Logic
+There are 3 contracts that are involved in P2P Dex logic 
+1. The ERC20 P2P contract -- which accepts and records all trades listed under witelisted tokens 
+2.The Native Coin contract -- which accepts and records all trades listed with native coins as sole assets
+3. The INRC P2P contract -- which accepts and records all trades listed with INRC as sole assets.
 
+The trades listed on CHAIDEX are with respect to INRC and others only.
+I.e 
+A seller can Trade only INRC for any Coin/Token on recognized chains Or sell any tokens/coins in exchange for INRC
+
+Similiarly a buyer can use INRC to buy other coins/tokens or buy INRC for any coin/token.
+
+The deposits by sellers is called a Trade
+The amount a buyer wants to pay for and take is called a Swap.
+
+The Swaps and trades existing in the participating chains  are cloned in each other with required details to facilitate the transfers
 
 ### The Working and Flow 
 A seller deposits a sum of tokenX in chainX in the ERC20 contract.
