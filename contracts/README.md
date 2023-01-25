@@ -6,6 +6,17 @@
 4.unstakeAll --params(index) -- index points to which token is being unstaked completely--Only possible when epoch is over and 80% is withdrawn beforehand <br />
 5.setEpoch --onlyOwner -- params(bool over) -- this is set to true and only then the staker can unstake remaining tokens <br />
 
+event Stake(string USD, address liquidityProvider, uint256 amount,uint256 USDtotal, uint256 TotalStake);
+
+    event Unstake(
+        string USD,
+        address liquidityProvider,
+        uint256 amount,
+        uint256 USDtotal,
+        uint256 TotalStake
+    );
+    
+    
 contract should revert-- <br />
 
 unstakeall when epoch is false<br />
@@ -23,6 +34,11 @@ contract should revert-- <br />
 Everything when paused is true<br />
 Buy when amount is zero<br />
 Buy when index does not exist<br />
+
+event Recieved(string USD,uint256 ID, address buyer, uint256 amount,uint256 balanceNew,uint256 UsdBalance); // upon recieve there should be a mint
+
+event Redeemed(string USD, address redeemer, uint256 amount,uint256 balanceNew,uint256 USDbalance); // upon redeem there should be equal burn
+
 
 ## APY contract
 It accepts the Chaidex governance/fee token from users who use the DEX and seperates them to wallets for maintenance and APY to stakers are provided in USD equivalent of current ChaiT price Or in CHaiT.<br />
