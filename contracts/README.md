@@ -85,7 +85,9 @@ This involves the requirement of payment of platform fee in terms of Chai Tokens
                  uint256 _endtime -- It is the duration for which the Trade should exist starting from then
 
 
-2.setTradeCloneID(OnlyOwner) --uint256 _id, 
+2.setTradeCloneID(OnlyOwner) 
+                       
+                       uint256 _id, 
 
                        address _seller ,
 
@@ -158,8 +160,9 @@ The buyer or seller will have to pay fee before initiating the deposit overridin
                  uint256 _endtime -- It is the duration for which the Trade should exist starting from then
 
 
-2.setTradeCloneID(OnlyOwner) --uint256 _id, 
+2.setTradeCloneID(OnlyOwner) 
 
+                       uint256 _id, 
                        address _seller ,
                        uint256 _endtime,
                       uint256 _maxAmount,
