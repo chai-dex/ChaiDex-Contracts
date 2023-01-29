@@ -199,9 +199,10 @@ Here ID is the trade ID so that after time is over the seller can take back any 
 
 7. Only in INRC -- PayFeeCHT
                 
-                (uint256 _tradeid,
-                 
-                 uint256 _amount)
+                (uint256 _tradeid, // this can be swapID or tradeID or tradeCloneID 
+                                  // No conflicts will be there as each are unique and the only thng this does is set feepaid to true onchain
+               uint256 _amount)  //without which trades or swaps wont happen
+                  
 
 The buyer or seller will have to pay fee before initiating the deposit overriding which will lose their deposit amount.
 
