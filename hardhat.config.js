@@ -3,6 +3,8 @@ require("@nomiclabs/hardhat-ethers");
 require("@openzeppelin/hardhat-upgrades");
 require("hardhat-gas-reporter");
 require("@nomiclabs/hardhat-etherscan");
+require('solidity-coverage');
+require("@nomiclabs/hardhat-web3");
 require("dotenv").config();
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -25,13 +27,13 @@ module.exports = {
       url: "https://rpc-mumbai.maticvigil.com",
       accounts: [process.env.PRIVATE_KEY],
     },
-    bitgertTestnet: {
-      url: `https://testnet-rpc.brisescan.com`,
-      accounts: {
-        mnemonic:
-          ,
-      },
-    },
+    // bitgertTestnet: {
+    //   url: `https://testnet-rpc.brisescan.com`,
+    //   accounts: {
+    //     mnemonic:
+          
+    //   },
+    // },
 
     goerli: {
       url: "https://rpc.ankr.com/eth_goerli",

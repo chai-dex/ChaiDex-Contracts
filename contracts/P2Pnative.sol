@@ -21,7 +21,7 @@ event swapCreated(uint256 _SwapID,address Buyer);
 event Sellerwithdraw(uint256 _TradeCloneid,address Seller,uint256 _amount);
 event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
 
-
+/// @custom:oz-upgrades-unsafe-allow constructor
     constructor() {
         _disableInitializers();
     }

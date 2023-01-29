@@ -17,7 +17,7 @@ contract LiquidityPool is Initializable, UUPSUpgradeable, OwnableUpgradeable,Pau
        __Ownable_init();
        __Pausable_init();
    }
-
+/// @custom:oz-upgrades-unsafe-allow constructor
     constructor() {
         _disableInitializers();
     }
