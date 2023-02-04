@@ -19,7 +19,7 @@ contract INRCoin is Initializable, ERC20Upgradeable,PausableUpgradeable, Ownable
         __Pausable_init();
         __UUPSUpgradeable_init();
     }
-
+    /// @custom:oz-upgrades-unsafe-allow constructor
      constructor() {
         _disableInitializers();
     }

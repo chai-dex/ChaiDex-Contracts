@@ -18,10 +18,33 @@ INRC will be on the bitgert chain and the treasury pool , liquidty pool are mult
 ![WhatsApp Image 2022-12-21 at 6 04 13 PM](https://user-images.githubusercontent.com/81789395/208907078-1a14ec8a-202f-4a7a-a1e1-e0008366a934.jpeg)
 
 ## DEX Logic
+There are 3 contracts that are involved in P2P Dex logic 
+1. The ERC20 P2P contract -- which accepts and records all trades listed under witelisted tokens 
+2.The Native Coin contract -- which accepts and records all trades listed with native coins as sole assets
+3. The INRC P2P contract -- which accepts and records all trades listed with INRC as sole assets.
 
-The smart contract is an upgradeable logic contract that caters to the storing of funds through deposits, withdrawals, and refunds. With respect to the architecture, the contract is deployed on different chains and has a unique TradeID and a passphrase that has to be passed in to the functions while calling any of them for either refund, deposit or withdrawals.
-Now for a trade that involves trade-off of a native token and INRC, as any trades that happen in DeX happen against INRC only, hence, when a trade is matched through the backend and you have to deposit the amount, the respective chain of the native token is called and parameters involving a passphrase and trade Id is called. Now when the other party deposits bitgert chain, INRC exists here, and is called with the same tradeID but with a different passphrase set by this party. Hence once both funds are locked, in order to withdraw the required token, the passphrase corresponding to that trade id on that respective chain needs to be sent as a parameter which ensures the safety of transfers without the need for bridges or wrapped tokens as the passphrase saves all the funds in the respective chains. If the other party doesn't put in the amount within 24 hours, you can withdraw the amount as the chain is updated with the owner of those tokens and hence can transfer your tokens back. 
+The trades listed on CHAIDEX are with respect to INRC and others only.
+I.e 
+A seller can Trade only INRC for any Coin/Token on recognized chains Or sell any tokens/coins in exchange for INRC
 
-Therefore, in order to access any funds out, only the required party will be able to do it as only the required party will get your passphrase. 
+Similiarly a buyer can use INRC to buy other coins/tokens or buy INRC for any coin/token.
 
-![WhatsApp Image 2022-12-21 at 6 04 13 PM (1)](https://user-images.githubusercontent.com/81789395/208906508-668febbc-be5c-4935-ac42-a20734d14e9f.jpeg)
+The deposits by sellers is called a Trade
+The amount a buyer wants to pay for and take is called a Swap.
+
+The Swaps and trades existing in the participating chains  are cloned in each other with required details to facilitate the transfers
+
+### The Working and Flow 
+A seller deposits a sum of tokenX in chainX in the ERC20 contract.
+He quotes an equivalent INRC he expects to receive per token.
+These details of the maximum INRC a buyer can deposit and the is cloned onto the INRC chain where buyers can deposit.
+The INRC deposited is directly sent to the seller after deducting the Info update charges in crosschain.
+
+Now once a buyer deposits to the INRC contract with the tradeID the amount of tokenX he should recieve is updated on ChainX. 
+The trade is time limited and hence the buyer should go to chainX and withdraw his amount before the trade is over(upon which tokenX gets refunded regardless of the success of buyer swap).
+
+Same goes for the other way round 
+The seller deposits INRC ine exchange for TokenX in chainX which is updated in ChainX where the buyers deposit TokenX for a swap and withdraws equivalent INRC
+
+This involves the requirement of payment of platform fee in terms of Chai Tokens in violation of which the trade will not exist.
+
