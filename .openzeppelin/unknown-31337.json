@@ -18,29 +18,34 @@
     },
     {
       "address": "0xDAEaB5ef86487b4f777A80dFa9BC0DE6878d7607",
-      "txHash": "0xd053dbc4f770cc8146703b33576a47668497f4048e6328cb559dc4f733752a24",
+      "txHash": "0x42f1d20027fe79cb825bdd43d7a22ba9323f5feb3dda2b27b5d63d08dcf23680",
       "kind": "uups"
     },
     {
       "address": "0x7b87B619586B5B69f7daE8291ddB6f307E9cE592",
-      "txHash": "0xc87dd92996c79adee01051ab73046ffc2634098b9ebb3d7d1992f343be695e94",
+      "txHash": "0xe32a941ba7ad647d2fcfef4811cf4b07b9bdbb03f8dbc2788f228b4839916360",
       "kind": "uups"
     },
     {
       "address": "0x016E5d3F654556CE0d8E10396C3b5F279f339c50",
-      "txHash": "0x0536a336701f3040cd59930c9c1cbff57df63bfb3bdd2ac5aeb60303cdb112dd",
+      "txHash": "0xa0528b4594854c8aa9dc8f757c30e363b11e927abd862c2d4802f6294ce17491",
       "kind": "uups"
     },
     {
       "address": "0x3Ec1d64Ec1678Ba1C008C9dBF7564058155Fab23",
-      "txHash": "0xfeb6c9e9501c180a0e1f38e4d95b17c5ec5ff3eec7bfee202ea0d35471121847",
+      "txHash": "0x184d777976adf03934b43c0688b786155d51d06bf6d0ee5a40759c1da4bc7778",
+      "kind": "uups"
+    },
+    {
+      "address": "0xC1089268EBFEcc0201840473b55B152Cd2A19ba0",
+      "txHash": "0xd620e56fdcb08d1b1d7926bdbd2f8a9ca9da01c4edd7d0cbec46e467e6cefa4f",
       "kind": "uups"
     }
   ],
   "impls": {
-    "20ab3cf7e9f2217e499099b698eda4b9e4c08e127fcef096e063a27fe063102d": {
+    "6cd71fad113a29bf0fcdb67671a139593e5bc627916990c2a41995638755586c": {
       "address": "0x162459Bb429a63D2e31Fe2d1cdb5b058f2D31AdF",
-      "txHash": "0xf3d9bdf72345a06f0727cfde29a2f2804032275c9cdecb17eebbff6a352abe2a",
+      "txHash": "0xf74072a15bcb9e3bd549406f09398c8ba9b49ace6afce123ffbe774856a006e5",
       "layout": {
         "solcVersion": "0.8.17",
         "storage": [
@@ -123,7 +128,7 @@
             "slot": "251",
             "type": "t_array(t_address)dyn_storage",
             "contract": "LiquidityPool",
-            "src": "contracts/LiquidityPool.sol:50"
+            "src": "contracts/LiquidityPool.sol:127"
           },
           {
             "label": "USDStable",
@@ -131,7 +136,7 @@
             "slot": "252",
             "type": "t_mapping(t_uint8,t_address)",
             "contract": "LiquidityPool",
-            "src": "contracts/LiquidityPool.sol:57"
+            "src": "contracts/LiquidityPool.sol:134"
           },
           {
             "label": "names",
@@ -139,7 +144,7 @@
             "slot": "253",
             "type": "t_mapping(t_uint8,t_string_storage)",
             "contract": "LiquidityPool",
-            "src": "contracts/LiquidityPool.sol:58"
+            "src": "contracts/LiquidityPool.sol:135"
           },
           {
             "label": "liquidityPool",
@@ -147,7 +152,7 @@
             "slot": "254",
             "type": "t_mapping(t_address,t_mapping(t_uint8,t_uint256))",
             "contract": "LiquidityPool",
-            "src": "contracts/LiquidityPool.sol:66"
+            "src": "contracts/LiquidityPool.sol:143"
           },
           {
             "label": "LPbalanceUSD",
@@ -155,7 +160,7 @@
             "slot": "255",
             "type": "t_mapping(t_uint8,t_uint256)",
             "contract": "LiquidityPool",
-            "src": "contracts/LiquidityPool.sol:67"
+            "src": "contracts/LiquidityPool.sol:144"
           },
           {
             "label": "StakerLiquidity",
@@ -163,7 +168,7 @@
             "slot": "256",
             "type": "t_mapping(t_address,t_uint256)",
             "contract": "LiquidityPool",
-            "src": "contracts/LiquidityPool.sol:68"
+            "src": "contracts/LiquidityPool.sol:145"
           },
           {
             "label": "unstakedMax",
@@ -171,7 +176,7 @@
             "slot": "257",
             "type": "t_mapping(t_address,t_mapping(t_uint8,t_bool))",
             "contract": "LiquidityPool",
-            "src": "contracts/LiquidityPool.sol:69"
+            "src": "contracts/LiquidityPool.sol:146"
           },
           {
             "label": "OldStaker",
@@ -179,7 +184,7 @@
             "slot": "258",
             "type": "t_mapping(t_address,t_bool)",
             "contract": "LiquidityPool",
-            "src": "contracts/LiquidityPool.sol:70"
+            "src": "contracts/LiquidityPool.sol:147"
           },
           {
             "label": "liquidityPoolStakes",
@@ -187,7 +192,7 @@
             "slot": "259",
             "type": "t_mapping(t_address,t_mapping(t_uint8,t_uint256))",
             "contract": "LiquidityPool",
-            "src": "contracts/LiquidityPool.sol:81"
+            "src": "contracts/LiquidityPool.sol:158"
           },
           {
             "label": "totalLiquidity",
@@ -195,7 +200,7 @@
             "slot": "260",
             "type": "t_uint256",
             "contract": "LiquidityPool",
-            "src": "contracts/LiquidityPool.sol:86"
+            "src": "contracts/LiquidityPool.sol:163"
           },
           {
             "label": "epochover",
@@ -203,7 +208,7 @@
             "slot": "261",
             "type": "t_bool",
             "contract": "LiquidityPool",
-            "src": "contracts/LiquidityPool.sol:87"
+            "src": "contracts/LiquidityPool.sol:164"
           },
           {
             "label": "unstakable",
@@ -211,7 +216,7 @@
             "slot": "261",
             "type": "t_bool",
             "contract": "LiquidityPool",
-            "src": "contracts/LiquidityPool.sol:88"
+            "src": "contracts/LiquidityPool.sol:165"
           }
         ],
         "types": {
@@ -282,9 +287,9 @@
         }
       }
     },
-    "6d0e7e1d3c72b5db311319048d8942804be8e72baadcfde72c40805cec24b9bc": {
+    "d0f6c71ed8dd66b1af07c65443909bc852530ac20c7b5e8bf363db3c9b02e17b": {
       "address": "0xcD3bFD04F09D5d1230C7804A9358d6feDb3549A1",
-      "txHash": "0xb6a587558c5201d2d21b656f7609124e6d5208e2a6121156d3f90985de58e90e",
+      "txHash": "0x941d6175789ec0c0664502fe4ca96ed8a8f9d241418cc90e9793a6e3f573b77e",
       "layout": {
         "solcVersion": "0.8.17",
         "storage": [
@@ -367,7 +372,7 @@
             "slot": "251",
             "type": "t_mapping(t_uint8,t_address)",
             "contract": "TreasuryPool",
-            "src": "contracts/treasuryPool.sol:28"
+            "src": "contracts/treasuryPool.sol:111"
           },
           {
             "label": "names",
@@ -375,7 +380,7 @@
             "slot": "252",
             "type": "t_mapping(t_uint8,t_string_storage)",
             "contract": "TreasuryPool",
-            "src": "contracts/treasuryPool.sol:30"
+            "src": "contracts/treasuryPool.sol:113"
           },
           {
             "label": "Maxminted",
@@ -383,7 +388,7 @@
             "slot": "253",
             "type": "t_bool",
             "contract": "TreasuryPool",
-            "src": "contracts/treasuryPool.sol:32"
+            "src": "contracts/treasuryPool.sol:115"
           },
           {
             "label": "BuynatDisable",
@@ -391,7 +396,7 @@
             "slot": "253",
             "type": "t_bool",
             "contract": "TreasuryPool",
-            "src": "contracts/treasuryPool.sol:33"
+            "src": "contracts/treasuryPool.sol:116"
           },
           {
             "label": "TPbalanceUSD",
@@ -399,7 +404,7 @@
             "slot": "254",
             "type": "t_mapping(t_uint8,t_uint256)",
             "contract": "TreasuryPool",
-            "src": "contracts/treasuryPool.sol:34"
+            "src": "contracts/treasuryPool.sol:117"
           },
           {
             "label": "tPtotalBalance",
@@ -407,7 +412,7 @@
             "slot": "255",
             "type": "t_uint256",
             "contract": "TreasuryPool",
-            "src": "contracts/treasuryPool.sol:37"
+            "src": "contracts/treasuryPool.sol:120"
           },
           {
             "label": "tPtotalBalanceNative",
@@ -415,7 +420,7 @@
             "slot": "256",
             "type": "t_uint256",
             "contract": "TreasuryPool",
-            "src": "contracts/treasuryPool.sol:38"
+            "src": "contracts/treasuryPool.sol:121"
           }
         ],
         "types": {
