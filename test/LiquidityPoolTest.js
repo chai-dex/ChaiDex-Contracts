@@ -148,6 +148,7 @@ describe("Deployment and functioning of LP", function() {
         await expect( instance.connect(addr1).setUSDAddress(0,"USDC",instance4.address,)).to.be.revertedWith('Ownable: caller is not the owner').then(console.log('setUSDAddress reverted as expected'));
         await expect( instance.connect(addr1).pause()).to.be.revertedWith('Ownable: caller is not the owner').then(console.log('pause reverted as expected'));
         await expect( instance.connect(addr1).unpause()).to.be.revertedWith('Ownable: caller is not the owner').then(console.log('unpause reverted as expected'));
+        await expect( instance.connect(addr1).setEpoch(true)).to.be.revertedWith('Ownable: caller is not the owner').then(console.log('setEpoch reverted as expected'));
       });
 
   });

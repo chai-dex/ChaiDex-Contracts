@@ -7,11 +7,6 @@
       "kind": "uups"
     },
     {
-      "address": "0x3335bf1F45d6aC680eBA25c314d45BEae26309Da",
-      "txHash": "0x514e62d12e835ff5b838689c622aed4d625aa11d2679d84fa0b63e43325c9fb1",
-      "kind": "uups"
-    },
-    {
       "address": "0x373892ec7fD11c40408809aFcf5e33e1388Cc24a",
       "txHash": "0xfd8b4df2a4a2adbb9014676384a69588a30fc19a2b8fad3332bc01430e972334",
       "kind": "uups"
@@ -67,11 +62,6 @@
       "kind": "uups"
     },
     {
-      "address": "0xBa39a2885CCaA6E139Ef8A8Ba833B140A3346F7c",
-      "txHash": "0x9d0fe6ba45ca246fab02d7e64c932722db68ea7a6f619c2c4c5f476d315768e3",
-      "kind": "uups"
-    },
-    {
       "address": "0x0752c3B9803c7a59601F1A0391d9a6820b81196A",
       "txHash": "0xae6be50b584d3095f889aed94f15913ea94da563eee6b9acc7eb5672283ba386",
       "kind": "uups"
@@ -79,11 +69,6 @@
     {
       "address": "0x7BfAF33fd6f332c3061472647f30066c00d9460b",
       "txHash": "0x445cfe6a43cf2b1ce22130aa35fc4916ec0e8e7839ff9e2c029925ba5c729854",
-      "kind": "uups"
-    },
-    {
-      "address": "0x8FA7FfaF818B7157823340cbF3E0c5B3F0a5A0C0",
-      "txHash": "0x761c7b4cf1b25a3afe9bbccee3ae2ec08ad58fb11dbea77b830e242e4c840660",
       "kind": "uups"
     },
     {
@@ -142,6 +127,16 @@
       "kind": "uups"
     },
     {
+      "address": "0xBa39a2885CCaA6E139Ef8A8Ba833B140A3346F7c",
+      "txHash": "0x9ee8e38dd665526579b3c26adfc61cfbc31a092a795e07f7de77a626d54d82b2",
+      "kind": "uups"
+    },
+    {
+      "address": "0x8FA7FfaF818B7157823340cbF3E0c5B3F0a5A0C0",
+      "txHash": "0x4f4cab8803eb96f01e095ce6e1124912c854be2ed518a53e31de3d6707c0396b",
+      "kind": "uups"
+    },
+    {
       "address": "0xDAEaB5ef86487b4f777A80dFa9BC0DE6878d7607",
       "txHash": "0x42f1d20027fe79cb825bdd43d7a22ba9323f5feb3dda2b27b5d63d08dcf23680",
       "kind": "uups"
@@ -149,6 +144,16 @@
     {
       "address": "0x7b87B619586B5B69f7daE8291ddB6f307E9cE592",
       "txHash": "0xe32a941ba7ad647d2fcfef4811cf4b07b9bdbb03f8dbc2788f228b4839916360",
+      "kind": "uups"
+    },
+    {
+      "address": "0x3A8e1e5669FeA47f03478E945946AadF6889fd5F",
+      "txHash": "0xfacde1cd2c2c8de6cbc5e708286a836a09a26fad666b44aa5b557d845c60ed07",
+      "kind": "uups"
+    },
+    {
+      "address": "0x3335bf1F45d6aC680eBA25c314d45BEae26309Da",
+      "txHash": "0xb01ad24b05b14ffb5d72c78cdb28e79e0f7a3df292cb0bed2df57b7a7e52593d",
       "kind": "uups"
     }
   ],
@@ -569,6 +574,386 @@
           "t_uint256": {
             "label": "uint256",
             "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        }
+      }
+    },
+    "23ba92901a163a7b427d8a2a4b13ec4118736d6900f472f490d23dbd554c1fba": {
+      "address": "0xBa39a2885CCaA6E139Ef8A8Ba833B140A3346F7c",
+      "txHash": "0x37971f57d61bac5f09c0bfbd1593c8de3fe3921f162c443418b7b2f185798af4",
+      "layout": {
+        "solcVersion": "0.8.17",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:62",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:67"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ERC1967UpgradeUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol:211"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "51",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "UUPSUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol:107"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "101",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ContextUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:36"
+          },
+          {
+            "label": "_owner",
+            "offset": 0,
+            "slot": "151",
+            "type": "t_address",
+            "contract": "OwnableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:22"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "152",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "OwnableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:94"
+          },
+          {
+            "label": "_paused",
+            "offset": 0,
+            "slot": "201",
+            "type": "t_bool",
+            "contract": "PausableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:29"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "202",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "PausableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol:116"
+          },
+          {
+            "label": "TradeTrack",
+            "offset": 0,
+            "slot": "251",
+            "type": "t_mapping(t_uint256,t_struct(TradeDetails)7359_storage)",
+            "contract": "EscrowINRC",
+            "src": "contracts/P2PINRC.sol:165"
+          },
+          {
+            "label": "TradeCloneTrack",
+            "offset": 0,
+            "slot": "252",
+            "type": "t_mapping(t_uint256,t_struct(TradeClone)7376_storage)",
+            "contract": "EscrowINRC",
+            "src": "contracts/P2PINRC.sol:166"
+          },
+          {
+            "label": "SwapTrack",
+            "offset": 0,
+            "slot": "253",
+            "type": "t_mapping(t_uint256,t_struct(SwapDetails)7389_storage)",
+            "contract": "EscrowINRC",
+            "src": "contracts/P2PINRC.sol:167"
+          },
+          {
+            "label": "INRC",
+            "offset": 0,
+            "slot": "254",
+            "type": "t_address",
+            "contract": "EscrowINRC",
+            "src": "contracts/P2PINRC.sol:168"
+          },
+          {
+            "label": "Feetoken",
+            "offset": 0,
+            "slot": "255",
+            "type": "t_address",
+            "contract": "EscrowINRC",
+            "src": "contracts/P2PINRC.sol:169"
+          },
+          {
+            "label": "TradeExisting",
+            "offset": 0,
+            "slot": "256",
+            "type": "t_mapping(t_uint256,t_bool)",
+            "contract": "EscrowINRC",
+            "src": "contracts/P2PINRC.sol:172"
+          },
+          {
+            "label": "SwapInProgress",
+            "offset": 0,
+            "slot": "257",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_bool))",
+            "contract": "EscrowINRC",
+            "src": "contracts/P2PINRC.sol:173"
+          },
+          {
+            "label": "FeePaidCHT",
+            "offset": 0,
+            "slot": "258",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_bool))",
+            "contract": "EscrowINRC",
+            "src": "contracts/P2PINRC.sol:174"
+          },
+          {
+            "label": "SwapExisting",
+            "offset": 0,
+            "slot": "259",
+            "type": "t_mapping(t_uint256,t_bool)",
+            "contract": "EscrowINRC",
+            "src": "contracts/P2PINRC.sol:175"
+          },
+          {
+            "label": "TradeUpdating",
+            "offset": 0,
+            "slot": "260",
+            "type": "t_mapping(t_uint256,t_bool)",
+            "contract": "EscrowINRC",
+            "src": "contracts/P2PINRC.sol:176"
+          },
+          {
+            "label": "TradeCloneUpdating",
+            "offset": 0,
+            "slot": "261",
+            "type": "t_mapping(t_uint256,t_bool)",
+            "contract": "EscrowINRC",
+            "src": "contracts/P2PINRC.sol:177"
+          },
+          {
+            "label": "feeCollected",
+            "offset": 0,
+            "slot": "262",
+            "type": "t_uint256",
+            "contract": "EscrowINRC",
+            "src": "contracts/P2PINRC.sol:178"
+          },
+          {
+            "label": "CHTBalance",
+            "offset": 0,
+            "slot": "263",
+            "type": "t_uint256",
+            "contract": "EscrowINRC",
+            "src": "contracts/P2PINRC.sol:179"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]",
+            "numberOfBytes": "1568"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]",
+            "numberOfBytes": "1600"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_bool))": {
+            "label": "mapping(address => mapping(uint256 => bool))",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_bool)": {
+            "label": "mapping(uint256 => bool)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_struct(SwapDetails)7389_storage)": {
+            "label": "mapping(uint256 => struct EscrowINRC.SwapDetails)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_struct(TradeClone)7376_storage)": {
+            "label": "mapping(uint256 => struct EscrowINRC.TradeClone)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_uint256,t_struct(TradeDetails)7359_storage)": {
+            "label": "mapping(uint256 => struct EscrowINRC.TradeDetails)",
+            "numberOfBytes": "32"
+          },
+          "t_struct(SwapDetails)7389_storage": {
+            "label": "struct EscrowINRC.SwapDetails",
+            "members": [
+              {
+                "label": "id",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "parentTradeID",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "buyer",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "WithdrawAmount",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "feeAmount",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "4"
+              },
+              {
+                "label": "CompletionStatus",
+                "type": "t_bool",
+                "offset": 0,
+                "slot": "5"
+              }
+            ],
+            "numberOfBytes": "192"
+          },
+          "t_struct(TradeClone)7376_storage": {
+            "label": "struct EscrowINRC.TradeClone",
+            "members": [
+              {
+                "label": "id",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "seller",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "endtime",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "MaxBalance",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "currentBalance",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "4"
+              },
+              {
+                "label": "originchainID",
+                "type": "t_uint32",
+                "offset": 0,
+                "slot": "5"
+              },
+              {
+                "label": "secondaryChainID",
+                "type": "t_uint32",
+                "offset": 4,
+                "slot": "5"
+              },
+              {
+                "label": "feeAmount",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "6"
+              }
+            ],
+            "numberOfBytes": "224"
+          },
+          "t_struct(TradeDetails)7359_storage": {
+            "label": "struct EscrowINRC.TradeDetails",
+            "members": [
+              {
+                "label": "id",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "seller",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "endtime",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "2"
+              },
+              {
+                "label": "DepositValue",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "3"
+              },
+              {
+                "label": "AvailableValue",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "4"
+              },
+              {
+                "label": "originchainID",
+                "type": "t_uint32",
+                "offset": 0,
+                "slot": "5"
+              },
+              {
+                "label": "secondaryChainID",
+                "type": "t_uint32",
+                "offset": 4,
+                "slot": "5"
+              }
+            ],
+            "numberOfBytes": "192"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint32": {
+            "label": "uint32",
+            "numberOfBytes": "4"
           },
           "t_uint8": {
             "label": "uint8",
