@@ -582,9 +582,9 @@
         }
       }
     },
-    "fc04d845c89968c044801bdc44e53e29bbe0d322f39c4481d46215e1a07d7ab1": {
+    "ff0fbe3bf0020623089b3c15028ad948efc7b3d248c07b6e4272a781effb9bee": {
       "address": "0xBa39a2885CCaA6E139Ef8A8Ba833B140A3346F7c",
-      "txHash": "0xd456af999740e1dc1d0ef203d3e78dff5928d4eacbd757d91684f7ccc00f057b",
+      "txHash": "0x15f383df184ad8cb9904a752773cae9d441f9ca208aafec7f635a1f7f367c4e9",
       "layout": {
         "solcVersion": "0.8.17",
         "storage": [
@@ -665,7 +665,7 @@
             "label": "TradeTrack",
             "offset": 0,
             "slot": "251",
-            "type": "t_mapping(t_uint256,t_struct(TradeDetails)4731_storage)",
+            "type": "t_mapping(t_uint256,t_struct(TradeDetails)1489_storage)",
             "contract": "EscrowINRC",
             "src": "contracts/P2PINRC.sol:72"
           },
@@ -673,7 +673,7 @@
             "label": "TradeCloneTrack",
             "offset": 0,
             "slot": "252",
-            "type": "t_mapping(t_uint256,t_struct(TradeClone)4748_storage)",
+            "type": "t_mapping(t_uint256,t_struct(TradeClone)1506_storage)",
             "contract": "EscrowINRC",
             "src": "contracts/P2PINRC.sol:73"
           },
@@ -681,7 +681,7 @@
             "label": "SwapTrack",
             "offset": 0,
             "slot": "253",
-            "type": "t_mapping(t_uint256,t_struct(SwapDetails)4761_storage)",
+            "type": "t_mapping(t_uint256,t_struct(SwapDetails)1519_storage)",
             "contract": "EscrowINRC",
             "src": "contracts/P2PINRC.sol:74"
           },
@@ -791,19 +791,19 @@
             "label": "mapping(uint256 => bool)",
             "numberOfBytes": "32"
           },
-          "t_mapping(t_uint256,t_struct(SwapDetails)4761_storage)": {
+          "t_mapping(t_uint256,t_struct(SwapDetails)1519_storage)": {
             "label": "mapping(uint256 => struct EscrowINRC.SwapDetails)",
             "numberOfBytes": "32"
           },
-          "t_mapping(t_uint256,t_struct(TradeClone)4748_storage)": {
+          "t_mapping(t_uint256,t_struct(TradeClone)1506_storage)": {
             "label": "mapping(uint256 => struct EscrowINRC.TradeClone)",
             "numberOfBytes": "32"
           },
-          "t_mapping(t_uint256,t_struct(TradeDetails)4731_storage)": {
+          "t_mapping(t_uint256,t_struct(TradeDetails)1489_storage)": {
             "label": "mapping(uint256 => struct EscrowINRC.TradeDetails)",
             "numberOfBytes": "32"
           },
-          "t_struct(SwapDetails)4761_storage": {
+          "t_struct(SwapDetails)1519_storage": {
             "label": "struct EscrowINRC.SwapDetails",
             "members": [
               {
@@ -845,7 +845,7 @@
             ],
             "numberOfBytes": "192"
           },
-          "t_struct(TradeClone)4748_storage": {
+          "t_struct(TradeClone)1506_storage": {
             "label": "struct EscrowINRC.TradeClone",
             "members": [
               {
@@ -899,7 +899,7 @@
             ],
             "numberOfBytes": "224"
           },
-          "t_struct(TradeDetails)4731_storage": {
+          "t_struct(TradeDetails)1489_storage": {
             "label": "struct EscrowINRC.TradeDetails",
             "members": [
               {
