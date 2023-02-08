@@ -29,7 +29,7 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
  function pause() public onlyOwner {
         _pause();
     }
-    
+
     function unpause() public onlyOwner {
         _unpause();
     }
@@ -44,7 +44,7 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
         uint256 AvailableValue;
         uint32 originchainID;
         uint32 secondaryChainID;
-        
+
     }
 
     struct TradeClone{
@@ -88,7 +88,7 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
 //         names[_index] = _name;
 //     }
 
-    function setSwapID(uint256  _id,uint256 _parentID,address _buyer,uint256 _withdrawamount,uint256 _feeAmount)public onlyOwner whenNotPaused 
+    function setSwapID(uint256  _id,uint256 _parentID,address _buyer,uint256 _withdrawamount,uint256 _feeAmount)public onlyOwner whenNotPaused
     {
         require(!SwapExisting[_id],"swap still in progress");
         require(TradeExisting[_parentID],"Trade has ended or does not exist");
@@ -145,7 +145,7 @@ uint256 _tradeTime=block.timestamp+_endtime;
          _amount,
          80001,
          420
-         
+
 
   );
   TradeTrack[_id] = data;
@@ -158,7 +158,7 @@ uint256 _tradeTime=block.timestamp+_endtime;
         require(TradeExisting[_id],"trade Does not exist");
         require(!TradeCloneUpdating[_id],"Please send transaction in some time");
         TradeCloneUpdating[_id]=true;
-      
+
         require(!SwapInProgress[msg.sender][_id],"you can only opt for a trade once");
         SwapInProgress[msg.sender][_id]=true;
         TradeClone memory data = TradeCloneTrack[_id];
@@ -177,8 +177,8 @@ uint256 _tradeTime=block.timestamp+_endtime;
         uint256 transferAmount=_amount-FeeTranfer;
         data.currentBalance +=(_amount);
         TradeCloneTrack[_id]= data;
-        TradeCloneUpdating[_id]=false;
         payable(seller).transfer(transferAmount);
+        TradeCloneUpdating[_id]=false;
         emit BuyerDeposit(_id,msg.sender,_amount);
     }
 
@@ -203,7 +203,7 @@ uint256 _tradeTime=block.timestamp+_endtime;
         data.CompletionStatus=true;
         TradeTrack[_parentID]=ParentDetails;
         SwapTrack[_id]=data;
-        feeCollected+=data.feeAmount; 
+        feeCollected+=data.feeAmount;
         TradeUpdating[_parentID]=false;
         payable(_buyer).transfer(amount);
         emit SwapComplete(_id,_parentID,msg.sender);
@@ -249,7 +249,7 @@ uint256 _tradeTime=block.timestamp+_endtime;
        TradeUpdating[_id]=false;
          payable(msg.sender).transfer(_amount);
          emit refunded(_id,msg.sender,_amount);
-    }    
+    }
     //  function viewTrades(uint256 id)
     //     public
     //     view
@@ -281,8 +281,9 @@ uint256 _tradeTime=block.timestamp+_endtime;
 function withdrawFee() public onlyOwner whenNotPaused
 {
     require(feeCollected>0,"no fees available");
-   payable(msg.sender).transfer(feeCollected);
     feeCollected=0;
+   payable(msg.sender).transfer(feeCollected);
+
 }
 
 }
