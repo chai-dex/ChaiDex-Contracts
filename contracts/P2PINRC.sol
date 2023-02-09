@@ -6,7 +6,9 @@ import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol";
 contract EscrowINRC is Initializable, UUPSUpgradeable, OwnableUpgradeable,PausableUpgradeable {
+    using SafeERC20Upgradeable for IERC20Upgradeable;
 
      function initialize() public initializer {
        __UUPSUpgradeable_init();
@@ -96,7 +98,7 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
     {
         require(_amount>0,"0 value");
         require(!FeePaidCHT[msg.sender][_tradeid],"fee paid already");
-        IERC20Upgradeable(Feetoken).transferFrom(msg.sender,address(this),_amount );
+        IERC20Upgradeable(Feetoken).safeTransferFrom(msg.sender,address(this),_amount );
         CHTBalance+=_amount;
         FeePaidCHT[msg.sender][_tradeid]=true;
 
@@ -165,7 +167,7 @@ uint256 _tradeTime=block.timestamp+_endtime;
 
   );
 
-  IERC20Upgradeable(INRC).transferFrom(msg.sender,address (this), _amount);
+  IERC20Upgradeable(INRC).safeTransferFrom(msg.sender,address (this), _amount);
   TradeTrack[_id] = data;
   emit tradeCreated(_id,_seller,_amount);
 }
@@ -189,14 +191,14 @@ uint256 _tradeTime=block.timestamp+_endtime;
         require(_amount>FeeTranfer,"Trade amount too low");
          if(FeeTranfer!=0)
          {
-              IERC20Upgradeable(INRC).transferFrom(msg.sender,address(this), FeeTranfer);
+              IERC20Upgradeable(INRC).safeTransferFrom(msg.sender,address(this), FeeTranfer);
                feeCollected+=FeeTranfer;
               data.feeAmount=0;
          }
         uint256 transferAmount=_amount-FeeTranfer;
         data.currentBalance +=(_amount);
         TradeCloneTrack[_id]= data;
-        IERC20Upgradeable(INRC).transferFrom(msg.sender,seller, transferAmount);
+        IERC20Upgradeable(INRC).safeTransferFrom(msg.sender,seller, transferAmount);
         TradeCloneUpdating[_id]=false;
         emit BuyerDeposit(_id,msg.sender,_amount);
     }
@@ -226,7 +228,7 @@ uint256 _tradeTime=block.timestamp+_endtime;
         SwapTrack[_id]=data;
         feeCollected+=data.feeAmount;
         TradeUpdating[_parentID]=false;
-        IERC20Upgradeable(INRC).transfer(_buyer, amount);
+        IERC20Upgradeable(INRC).safeTransfer(_buyer, amount);
         emit SwapComplete(_id,_parentID,msg.sender);
     }
 
@@ -269,7 +271,7 @@ uint256 _tradeTime=block.timestamp+_endtime;
         data.AvailableValue-=_amount;
         TradeTrack[_id]=data;
        TradeUpdating[_id]=false;
-         IERC20Upgradeable(INRC).transfer(data.seller, _amount);
+         IERC20Upgradeable(INRC).safeTransfer(data.seller, _amount);
          emit refunded(_id,msg.sender,_amount);
     }
     //  function viewTrades(uint256 id)
@@ -306,8 +308,8 @@ function withdrawFee() public onlyOwner whenNotPaused
     require(CHTBalance>0,"no fees available");
     CHTBalance=0;
     feeCollected=0;
-    IERC20Upgradeable(INRC).transfer(msg.sender, feeCollected);
-    IERC20Upgradeable(Feetoken).transfer(msg.sender, CHTBalance);
+    IERC20Upgradeable(INRC).safeTransfer(msg.sender, feeCollected);
+    IERC20Upgradeable(Feetoken).safeTransfer(msg.sender, CHTBalance);
 
 }
 

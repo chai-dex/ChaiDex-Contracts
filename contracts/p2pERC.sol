@@ -6,7 +6,9 @@ import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol";
 contract EscrowERC is Initializable, UUPSUpgradeable, OwnableUpgradeable,PausableUpgradeable {
+    using SafeERC20Upgradeable for IERC20Upgradeable;
 
      function initialize() public initializer {
        __UUPSUpgradeable_init();
@@ -149,7 +151,7 @@ uint256 _tradeTime=block.timestamp+_endtime;
 
 
   );
-  IERC20Upgradeable(Whitelistedtokens[_tokenIndex]).transferFrom(msg.sender,address (this), _amount);
+  IERC20Upgradeable(Whitelistedtokens[_tokenIndex]).safeTransferFrom(msg.sender,address (this), _amount);
    TradeTrack[_id] = data;
   emit tradeCreated(_id,_seller,_amount);
 }
@@ -173,14 +175,14 @@ uint256 _tradeTime=block.timestamp+_endtime;
          require(_amount>FeeTranfer,"amount too low");
          if(FeeTranfer!=0)
          {
-              IERC20Upgradeable(Whitelistedtokens[_tokenIndex]).transferFrom(msg.sender,address(this), FeeTranfer);
+              IERC20Upgradeable(Whitelistedtokens[_tokenIndex]).safeTransferFrom(msg.sender,address(this), FeeTranfer);
                feeCollected[_tokenIndex]+=FeeTranfer;
               data.feeAmount=0;
          }
         uint256 transferAmount=_amount-FeeTranfer;
         data.currentBalance +=(_amount);
         TradeCloneTrack[_id]= data;
-        IERC20Upgradeable(Whitelistedtokens[_tokenIndex]).transferFrom(msg.sender,seller, transferAmount);
+        IERC20Upgradeable(Whitelistedtokens[_tokenIndex]).safeTransferFrom(msg.sender,seller, transferAmount);
         TradeCloneUpdating[_id]=false;
         emit BuyerDeposit(_id,msg.sender,_amount);
     }
@@ -211,7 +213,7 @@ uint256 _tradeTime=block.timestamp+_endtime;
         uint8 _tokenIndex=ParentDetails.SellerGiveTokenIndex;
         feeCollected[_tokenIndex]+=data.feeAmount;
         TradeUpdating[_parentID]=false;
-        IERC20Upgradeable(Whitelistedtokens[_tokenIndex]).transfer(_buyer, amount);
+        IERC20Upgradeable(Whitelistedtokens[_tokenIndex]).safeTransfer(_buyer, amount);
         emit SwapComplete(_id,_parentID,msg.sender);
     }
 
@@ -254,7 +256,7 @@ uint256 _tradeTime=block.timestamp+_endtime;
         TradeTrack[_id]=data;
        uint8 _tokenIndex=data.SellerGiveTokenIndex;
        TradeUpdating[_id]=false;
-         IERC20Upgradeable(Whitelistedtokens[_tokenIndex]).transfer(data.seller, _amount);
+         IERC20Upgradeable(Whitelistedtokens[_tokenIndex]).safeTransfer(data.seller, _amount);
          emit refunded(_id,msg.sender,_amount);
     }
     //  function viewTrades(uint256 id)
@@ -289,7 +291,7 @@ function withdrawFee(uint8 _index) public onlyOwner whenNotPaused
 {
     require(feeCollected[_index]>0,"no fees available");
     feeCollected[_index]=0;
-    IERC20Upgradeable(Whitelistedtokens[_index]).transfer(msg.sender, feeCollected[_index]);
+    IERC20Upgradeable(Whitelistedtokens[_index]).safeTransfer(msg.sender, feeCollected[_index]);
 
 }
 

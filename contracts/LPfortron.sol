@@ -4,8 +4,9 @@ pragma solidity ^0.8.4;
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
+import"@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 contract LiquidityPoolTron is Ownable,Pausable {
-
+using SafeERC20 for IERC20;
 
     function unpause() public onlyOwner {
         _unpause();
@@ -156,7 +157,7 @@ unstakable=_over;
         //     require(_amount > liquidityPool[msg.sender][_usd],"stake must be greater than 20% of previous stake");
         // }
 
-        IERC20(USDStable[_usd]).transferFrom(
+        IERC20(USDStable[_usd]).safeTransferFrom(
             msg.sender,
             address(this),
             _amount
@@ -197,7 +198,7 @@ unstakable=_over;
         LPbalanceUSD[_usd]-=_amount;
         totalLiquidity -= _amount;
 
-        IERC20(USDStable[_usd]).transfer(msg.sender, _amount);
+        IERC20(USDStable[_usd]).safeTransfer(msg.sender, _amount);
         emit Unstake(names[_usd], msg.sender, _amount,liquidityPool[msg.sender][_usd],StakerLiquidity[msg.sender]);
 
     }
@@ -214,7 +215,7 @@ function _unstakeAll(uint8 _usd) internal whenNotPaused {
         totalLiquidity -= balance;
         liquidityPoolStakes[msg.sender][_usd] -= 1;
 
-        IERC20(USDStable[_usd]).transfer(msg.sender,balance);
+        IERC20(USDStable[_usd]).safeTransfer(msg.sender,balance);
         emit Unstake(names[_usd], msg.sender, balance,liquidityPool[msg.sender][_usd],StakerLiquidity[msg.sender]);
 
 }

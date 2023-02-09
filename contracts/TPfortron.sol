@@ -4,8 +4,10 @@ pragma solidity ^0.8.4;
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
+import"@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 
 contract TreasuryPoolTron is Ownable ,Pausable {
+    using SafeERC20 for IERC20;
 
     constructor() {}
     event Recieved(string USD,uint256 ID, address buyer, uint256 amount,uint256 balanceNew,uint256 UsdBalance); // upon recieve there should be a mint
@@ -59,7 +61,7 @@ BuynatDisable=_disable;
         require (!Maxminted,"Maximum minting reached");
 
 
-        IERC20(USDStable[_usd]).transferFrom(
+        IERC20(USDStable[_usd]).safeTransferFrom(
             msg.sender,
             address(this),
             _amount
@@ -87,7 +89,7 @@ BuynatDisable=_disable;
         TPbalanceUSD[_usd]-=_amount;
          tPtotalBalance -= _amount;
 
-        IERC20(USDStable[_usd]).transfer(redeemer, _amount);
+        IERC20(USDStable[_usd]).safeTransfer(redeemer, _amount);
          emit Redeemed(names[_usd], redeemer, _amount,tPtotalBalance,TPbalanceUSD[_usd]);
     }
 
@@ -99,7 +101,7 @@ BuynatDisable=_disable;
         string memory network="MATIC";
         tPtotalBalanceNative -= _amount;
 
-        payable(redeemer).transfer(_amount);
+        payable(redeemer).safeTransfer(_amount);
         emit Redeemed(network, redeemer, _amount,tPtotalBalance,tPtotalBalanceNative);
     }
 
