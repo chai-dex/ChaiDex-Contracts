@@ -189,13 +189,14 @@ uint256 _tradeTime=block.timestamp+_endtime;
         require(block.timestamp<data.endtime,"This trade has ended");
          uint256 FeeTranfer=data.feeAmount;
         require(_amount>FeeTranfer,"Trade amount too low");
+        uint256 transferAmount=_amount-FeeTranfer;
          if(FeeTranfer!=0)
          {
               IERC20Upgradeable(INRC).safeTransferFrom(msg.sender,address(this), FeeTranfer);
                feeCollected+=FeeTranfer;
               data.feeAmount=0;
          }
-        uint256 transferAmount=_amount-FeeTranfer;
+
         data.currentBalance +=(_amount);
         TradeCloneTrack[_id]= data;
         IERC20Upgradeable(INRC).safeTransferFrom(msg.sender,seller, transferAmount);

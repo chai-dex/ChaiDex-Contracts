@@ -6,8 +6,9 @@ import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol";
 contract TreasuryPool is Initializable, UUPSUpgradeable,PausableUpgradeable, OwnableUpgradeable  {
-
+using SafeERC20Upgradeable for IERC20Upgradeable;
 function initialize() public initializer {
        __UUPSUpgradeable_init();
        __Ownable_init();
@@ -72,7 +73,7 @@ BuynatDisable=_disable;
         require (!Maxminted,"Maximum minting reached");
 
 
-        IERC20Upgradeable(USDStable[_usd]).transferFrom(
+        IERC20Upgradeable(USDStable[_usd]).safeTransferFrom(
             msg.sender,
             address(this),
             _amount
@@ -97,16 +98,18 @@ BuynatDisable=_disable;
    function Redeem(address redeemer,uint8 _usd, uint256 _amount) public onlyOwner whenNotPaused {
         require(_amount > 0, "amount cannot be 0");
         require(_amount<=TPbalanceUSD[_usd]);
+        require(redeemer !=address(0), "null");
         TPbalanceUSD[_usd]-=_amount;
          tPtotalBalance -= _amount;
 
-        IERC20Upgradeable(USDStable[_usd]).transfer(redeemer, _amount);
+        IERC20Upgradeable(USDStable[_usd]).safeTransfer(redeemer, _amount);
          emit Redeemed(names[_usd], redeemer, _amount,tPtotalBalance,TPbalanceUSD[_usd]);
     }
 
      function RedeemNat(address redeemer, uint256 _amount) public payable onlyOwner whenNotPaused {
         require(_amount > 0, "amount cannot be 0");
         require (!Maxminted,"Maximum minting reached");
+         require(redeemer !=address(0), "null");
         require (!BuynatDisable,"Cannot buy using native coins anymore");
         require(_amount<=tPtotalBalanceNative);
         string memory network="MATIC";

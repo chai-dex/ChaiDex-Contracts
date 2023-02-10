@@ -172,6 +172,7 @@ uint256 _tradeTime=block.timestamp+_endtime;
         require(block.timestamp<data.endtime,"This trade has ended");
          uint8 _tokenIndex=data.SellerGetTokenIndex;
          uint256 FeeTranfer=data.feeAmount;
+         uint256 transferAmount=_amount-FeeTranfer;
          require(_amount>FeeTranfer,"amount too low");
          if(FeeTranfer!=0)
          {
@@ -179,7 +180,7 @@ uint256 _tradeTime=block.timestamp+_endtime;
                feeCollected[_tokenIndex]+=FeeTranfer;
               data.feeAmount=0;
          }
-        uint256 transferAmount=_amount-FeeTranfer;
+
         data.currentBalance +=(_amount);
         TradeCloneTrack[_id]= data;
         IERC20Upgradeable(Whitelistedtokens[_tokenIndex]).safeTransferFrom(msg.sender,seller, transferAmount);
