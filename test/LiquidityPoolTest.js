@@ -56,7 +56,11 @@ describe("Deployment and functioning of LP", function() {
       // expect(await instance.setUSDAddress(0,"USDC",instance4.address,))
       // expect(await instance4.approve(instance.address, 5000))
        expect(await instance.stake(0,1000))
+       expect(await instance.connect(addr1).stake(0,12120))
 
+
+      const LPbalance=  await instance.LPbalanceUSD(0);
+       expect( await instance4.balanceOf(instance.address)).to.equal(LPbalance);
       await expect( instance.unstake(0,1000)).to.be.revertedWith('Treasury Pool: Amount is Zero or Greater than Stake').then(console.log("reverted as expected with amount incorrect error"));
       expect(await instance.setEpoch(true))
       expect(await instance.setUnstake(true))
@@ -149,6 +153,29 @@ describe("Deployment and functioning of LP", function() {
         await expect( instance.connect(addr1).pause()).to.be.revertedWith('Ownable: caller is not the owner').then(console.log('pause reverted as expected'));
         await expect( instance.connect(addr1).unpause()).to.be.revertedWith('Ownable: caller is not the owner').then(console.log('unpause reverted as expected'));
         await expect( instance.connect(addr1).setEpoch(true)).to.be.revertedWith('Ownable: caller is not the owner').then(console.log('setEpoch reverted as expected'));
+        await expect( instance.connect(addr1).setUnstake(true)).to.be.revertedWith('Ownable: caller is not the owner').then(console.log('setUnstake reverted as expected'));
+
+      });
+
+      it('all functions should revert when paused', async () => {
+        const { instance, instance3, instance4, owner, addr1, addr2 } = await loadFixture(deployTokenFixture);
+        expect(await instance.pause())
+        await expect( instance.setUSDAddress(0,"USDC",instance4.address,)).to.be.revertedWith('Pausable: paused').then(console.log('setUSDAddress reverted as expected'));
+        await expect( instance.connect(addr1).stake(0,1000)).to.be.revertedWith('Pausable: paused').then(console.log('stake reverted as expected'));
+        await expect( instance.connect(addr1).unstake(0,1000)).to.be.revertedWith('Pausable: paused').then(console.log('unstake reverted as expected'));
+        await expect( instance.setEpoch(true)).to.be.revertedWith('Pausable: paused').then(console.log('setEpoch reverted as expected'));
+        await expect( instance.setUnstake(true)).to.be.revertedWith('Pausable: paused').then(console.log('setUnstake reverted as expected'));
+      });
+
+      it('get all balances and get stakers', async () => {
+        const { instance, instance3, instance4, owner, addr1, addr2 } = await loadFixture(deployTokenFixture);
+        expect(await instance.stake(0,1000))
+        expect(await instance.stake(0,1000))
+        expect(await instance.connect(addr1).stake(0,1000))
+        const lpbalance =await  instance.getLPbalance(2);
+        console.log(lpbalance);
+        const stakers=await instance.GetStakers(0,2)
+        console.log("get stakers complete",stakers);
       });
 
   });

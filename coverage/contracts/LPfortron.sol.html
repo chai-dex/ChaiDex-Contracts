@@ -290,7 +290,9 @@
 245
 246
 247
-248</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+248
+249</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -447,20 +449,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -543,8 +545,9 @@ pragma solidity ^0.8.4;
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
+import"@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 contract LiquidityPoolTron is Ownable,Pausable {
-&nbsp;
+using SafeERC20 for IERC20;
 &nbsp;
 <span class="fstat-no" title="function not covered" >    function unpause() public onlyOwner {</span>
 <span class="cstat-no" title="statement not covered" >        _unpause()</span>;
@@ -610,13 +613,13 @@ contract LiquidityPoolTron is Ownable,Pausable {
     uint256 public totalLiquidity;
     bool public epochover;
     bool public unstakable;
-   
+&nbsp;
 &nbsp;
     //confirmations for tht risky withdrawal *********************************************************
 //     bool public gate1;
 //     bool public gate2;
 //     bool public gate3;
-     
+&nbsp;
 // function gate1confirm(bool _confirm)public onlyOwner whenNotPaused {
 //  gate1=_confirm;
 // }
@@ -630,7 +633,7 @@ contract LiquidityPoolTron is Ownable,Pausable {
 // }
 //*********************************************************************************************************
 &nbsp;
-    
+&nbsp;
 &nbsp;
     /**
      * @dev Updates the address of the USD stable coins in the list
@@ -650,7 +653,7 @@ unstakable=_over;
     ) public whenNotPaused onlyOwner {
         USDStable[_index] = _USD;
         names[_index] = _name;
-       
+&nbsp;
     }
 &nbsp;
     /**
@@ -694,6 +697,12 @@ unstakable=_over;
         // if(unstakedMax[msg.sender][_usd]){
         //     require(_amount &gt; liquidityPool[msg.sender][_usd],"stake must be greater than 20% of previous stake");
         // }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        IERC20(USDStable[_usd]).safeTransferFrom(</span>
+            msg.sender,
+            address(this),
+            _amount
+        );
         liquidityPool[msg.sender][_usd] += _amount;
         StakerLiquidity[msg.sender]+=_amount;
         unstakedMax[msg.sender][_usd]=false;
@@ -703,13 +712,7 @@ unstakable=_over;
 <span class="cstat-no" title="statement not covered" >          stakers.push(msg.sender)</span>;
           OldStaker[msg.sender]=true;
         }
-       
-<span class="cstat-no" title="statement not covered" >        IERC20(USDStable[_usd]).transferFrom(</span>
-            msg.sender,
-            address(this),
-            _amount
-        );
-        
+&nbsp;
 <span class="cstat-no" title="statement not covered" >         emit Stake(names[_usd], msg.sender, _amount,liquidityPool[msg.sender][_usd],StakerLiquidity[msg.sender]);</span>
     }
 &nbsp;
@@ -735,10 +738,10 @@ unstakable=_over;
         StakerLiquidity[msg.sender]-=_amount;
         LPbalanceUSD[_usd]-=_amount;
         totalLiquidity -= _amount;
-        
-<span class="cstat-no" title="statement not covered" >        IERC20(USDStable[_usd]).transfer(msg.sender, _amount)</span>;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        IERC20(USDStable[_usd]).safeTransfer(msg.sender, _amount)</span>;
 <span class="cstat-no" title="statement not covered" >        emit Unstake(names[_usd], msg.sender, _amount,liquidityPool[msg.sender][_usd],StakerLiquidity[msg.sender]);</span>
-        
+&nbsp;
     }
 <span class="fstat-no" title="function not covered" >function _unstakeAll(uint8 _usd) internal whenNotPaused {</span>
 &nbsp;
@@ -752,10 +755,10 @@ unstakable=_over;
         LPbalanceUSD[_usd]-=balance;
         totalLiquidity -= balance;
         liquidityPoolStakes[msg.sender][_usd] -= 1;
-        
-<span class="cstat-no" title="statement not covered" >        IERC20(USDStable[_usd]).transfer(msg.sender,balance)</span>;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        IERC20(USDStable[_usd]).safeTransfer(msg.sender,balance)</span>;
 <span class="cstat-no" title="statement not covered" >        emit Unstake(names[_usd], msg.sender, balance,liquidityPool[msg.sender][_usd],StakerLiquidity[msg.sender]);</span>
-        
+&nbsp;
 }
 &nbsp;
 <span class="fstat-no" title="function not covered" >function getLPbalance(uint8 _length ) public view returns(uint256[] memory) {</span>
@@ -790,7 +793,7 @@ unstakable=_over;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Feb 07 2023 12:48:49 GMT+0000 (Coordinated Universal Time)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Feb 10 2023 07:38:17 GMT+0000 (Coordinated Universal Time)
 </div>
 </div>
 <script src="../prettify.js"></script>

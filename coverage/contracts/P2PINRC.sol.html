@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">4.94% </span>
+        <span class="strong">4.88% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>4/81</span>
+        <span class='fraction'>4/82</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">2.5% </span>
+        <span class="strong">2.46% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>3/120</span>
+        <span class='fraction'>3/122</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">21.43% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>3/14</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">5.31% </span>
+        <span class="strong">5.22% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>6/113</span>
+        <span class='fraction'>6/115</span>
       </div>
     </div>
   </div>
@@ -352,7 +352,17 @@
 307
 308
 309
-310</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+310
+311
+312
+313
+314
+315
+316
+317
+318</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -457,6 +467,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -507,6 +518,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -540,12 +552,13 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -554,6 +567,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -578,6 +592,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -658,6 +673,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -669,7 +685,9 @@ import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol";
 contract EscrowINRC is Initializable, UUPSUpgradeable, OwnableUpgradeable,PausableUpgradeable {
+    using SafeERC20Upgradeable for IERC20Upgradeable;
 &nbsp;
      function initialize() public <span class="missing-if-branch" title="else path not taken" >E</span>initializer {
        __UUPSUpgradeable_init();
@@ -693,7 +711,7 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
 <span class="fstat-no" title="function not covered" > function pause() public onlyOwner {</span>
 <span class="cstat-no" title="statement not covered" >        _pause()</span>;
     }
-    
+&nbsp;
 <span class="fstat-no" title="function not covered" >    function unpause() public onlyOwner {</span>
 <span class="cstat-no" title="statement not covered" >        _unpause()</span>;
     }
@@ -708,7 +726,7 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
         uint256 AvailableValue;
         uint32 originchainID;
         uint32 secondaryChainID;
-        
+&nbsp;
     }
 &nbsp;
     struct TradeClone{
@@ -752,19 +770,20 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
     ) public <span class="missing-if-branch" title="else path not taken" >E</span>whenNotPaused <span class="missing-if-branch" title="else path not taken" >E</span>onlyOwner {
         INRC = _token;
         Feetoken=_CHT;
-       
+&nbsp;
     }
 &nbsp;
 <span class="fstat-no" title="function not covered" >    function PayFeeCHT(uint256 _tradeid,uint256 _amount) public whenNotPaused</span>
     {
 <span class="cstat-no" title="statement not covered" >        require(_amount&gt;0,"0 value")</span>;
 <span class="cstat-no" title="statement not covered" >        require(!FeePaidCHT[msg.sender][_tradeid],"fee paid already")</span>;
+<span class="cstat-no" title="statement not covered" >        IERC20Upgradeable(Feetoken).safeTransferFrom(msg.sender,address(this),_amount )</span>;
         CHTBalance+=_amount;
         FeePaidCHT[msg.sender][_tradeid]=true;
-<span class="cstat-no" title="statement not covered" >        IERC20Upgradeable(Feetoken).transferFrom(msg.sender,address(this),_amount )</span>;
-       
+&nbsp;
+&nbsp;
     }
-<span class="fstat-no" title="function not covered" >    function setSwapID(uint256  _id,uint256 _parentID,address _buyer,uint256 _withdrawamount,uint256 _feeAmount)public onlyOwner whenNotPaused </span>
+<span class="fstat-no" title="function not covered" >    function setSwapID(uint256  _id,uint256 _parentID,address _buyer,uint256 _withdrawamount,uint256 _feeAmount)public onlyOwner whenNotPaused</span>
     {
 <span class="cstat-no" title="statement not covered" >        require(!SwapExisting[_id],"swap still in progress")</span>;
 <span class="cstat-no" title="statement not covered" >         require(FeePaidCHT[_buyer][_id],"Pay fee first")</span>;
@@ -823,11 +842,12 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
          _amount,
          80001,
          420
-         
+&nbsp;
 &nbsp;
   );
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  IERC20Upgradeable(INRC).safeTransferFrom(msg.sender,address (this), _amount)</span>;
   TradeTrack[_id] = data;
-<span class="cstat-no" title="statement not covered" >  IERC20Upgradeable(INRC).transferFrom(msg.sender,address (this), _amount)</span>;
 <span class="cstat-no" title="statement not covered" >  emit tradeCreated(_id,_seller,_amount);</span>
 }
 &nbsp;
@@ -837,7 +857,7 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
 <span class="cstat-no" title="statement not covered" >        require(TradeExisting[_id],"trade Does not exist")</span>;
 <span class="cstat-no" title="statement not covered" >        require(!TradeCloneUpdating[_id],"Please send transaction in some time")</span>;
         TradeCloneUpdating[_id]=true;
-      
+&nbsp;
 <span class="cstat-no" title="statement not covered" >        require(!SwapInProgress[msg.sender][_id],"you can only opt for a trade once")</span>;
         SwapInProgress[msg.sender][_id]=true;
 <span class="cstat-no" title="statement not covered" >        TradeClone memory data = TradeCloneTrack[_id];</span>
@@ -848,17 +868,18 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
 <span class="cstat-no" title="statement not covered" >        require(block.timestamp&lt;data.endtime,"This trade has ended")</span>;
 <span class="cstat-no" title="statement not covered" >         uint256 FeeTranfer=data.feeAmount;</span>
 <span class="cstat-no" title="statement not covered" >        require(_amount&gt;FeeTranfer,"Trade amount too low")</span>;
+<span class="cstat-no" title="statement not covered" >        uint256 transferAmount=_amount-FeeTranfer;</span>
 <span class="cstat-no" title="statement not covered" >         if(FeeTranfer!=0)</span>
          {
-<span class="cstat-no" title="statement not covered" >              IERC20Upgradeable(INRC).transferFrom(msg.sender,address(this), FeeTranfer)</span>;
+<span class="cstat-no" title="statement not covered" >              IERC20Upgradeable(INRC).safeTransferFrom(msg.sender,address(this), FeeTranfer)</span>;
                feeCollected+=FeeTranfer;
               data.feeAmount=0;
          }
-<span class="cstat-no" title="statement not covered" >        uint256 transferAmount=_amount-FeeTranfer;</span>
+&nbsp;
         data.currentBalance +=(_amount);
         TradeCloneTrack[_id]= data;
+<span class="cstat-no" title="statement not covered" >        IERC20Upgradeable(INRC).safeTransferFrom(msg.sender,seller, transferAmount)</span>;
         TradeCloneUpdating[_id]=false;
-<span class="cstat-no" title="statement not covered" >        IERC20Upgradeable(INRC).transferFrom(msg.sender,seller, transferAmount)</span>;
 <span class="cstat-no" title="statement not covered" >        emit BuyerDeposit(_id,msg.sender,_amount);</span>
     }
 &nbsp;
@@ -867,6 +888,7 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
 <span class="cstat-no" title="statement not covered" >        require(SwapExisting[_id],"swap does not exist")</span>;
         SwapExisting[_id]=false;
 <span class="cstat-no" title="statement not covered" >        SwapDetails memory data = SwapTrack[_id];</span>
+<span class="cstat-no" title="statement not covered" >        require(data.WithdrawAmount&gt;0,"withdraw completed")</span>;
 <span class="cstat-no" title="statement not covered" >        uint256 _parentID=data.parentTradeID;</span>
 <span class="cstat-no" title="statement not covered" >        require(!TradeUpdating[_parentID],"Please send transaction in some time")</span>;
         TradeUpdating[_parentID]=true;
@@ -881,11 +903,12 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
 <span class="cstat-no" title="statement not covered" >        require(data.WithdrawAmount&lt;=ParentDetails.AvailableValue,"amount exceeds trade amount please recheck")</span>;
         ParentDetails.AvailableValue-=data.WithdrawAmount;
         data.CompletionStatus=true;
+        data.WithdrawAmount=0;
         TradeTrack[_parentID]=ParentDetails;
         SwapTrack[_id]=data;
-        feeCollected+=data.feeAmount; 
+        feeCollected+=data.feeAmount;
         TradeUpdating[_parentID]=false;
-<span class="cstat-no" title="statement not covered" >        IERC20Upgradeable(INRC).transfer(_buyer, amount)</span>;
+<span class="cstat-no" title="statement not covered" >        IERC20Upgradeable(INRC).safeTransfer(_buyer, amount)</span>;
 <span class="cstat-no" title="statement not covered" >        emit SwapComplete(_id,_parentID,msg.sender);</span>
     }
 &nbsp;
@@ -928,9 +951,9 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
         data.AvailableValue-=_amount;
         TradeTrack[_id]=data;
        TradeUpdating[_id]=false;
-<span class="cstat-no" title="statement not covered" >         IERC20Upgradeable(INRC).transfer(data.seller, _amount)</span>;
+<span class="cstat-no" title="statement not covered" >         IERC20Upgradeable(INRC).safeTransfer(data.seller, _amount)</span>;
 <span class="cstat-no" title="statement not covered" >         emit refunded(_id,msg.sender,_amount);</span>
-    }    
+    }
     //  function viewTrades(uint256 id)
     //     public
     //     view
@@ -963,10 +986,11 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
 {
 <span class="cstat-no" title="statement not covered" >    require(feeCollected&gt;0,"no fees available")</span>;
 <span class="cstat-no" title="statement not covered" >    require(CHTBalance&gt;0,"no fees available")</span>;
-<span class="cstat-no" title="statement not covered" >    IERC20Upgradeable(INRC).transfer(msg.sender, feeCollected)</span>;
-<span class="cstat-no" title="statement not covered" >    IERC20Upgradeable(Feetoken).transfer(msg.sender, CHTBalance)</span>;
     CHTBalance=0;
     feeCollected=0;
+<span class="cstat-no" title="statement not covered" >    IERC20Upgradeable(INRC).safeTransfer(msg.sender, feeCollected)</span>;
+<span class="cstat-no" title="statement not covered" >    IERC20Upgradeable(Feetoken).safeTransfer(msg.sender, CHTBalance)</span>;
+&nbsp;
 }
 &nbsp;
 }
@@ -976,7 +1000,7 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Feb 07 2023 12:48:49 GMT+0000 (Coordinated Universal Time)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Feb 10 2023 07:38:17 GMT+0000 (Coordinated Universal Time)
 </div>
 </div>
 <script src="../prettify.js"></script>

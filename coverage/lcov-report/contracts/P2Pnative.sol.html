@@ -22,12 +22,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>0/71</span>
+        <span class='fraction'>0/72</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/102</span>
+        <span class='fraction'>0/104</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>0/98</span>
+        <span class='fraction'>0/100</span>
       </div>
     </div>
   </div>
@@ -331,7 +331,10 @@
 286
 287
 288
-289</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+289
+290
+291
+292</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -540,6 +543,8 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -616,6 +621,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -650,7 +656,7 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
 <span class="fstat-no" title="function not covered" > function pause() public onlyOwner {</span>
 <span class="cstat-no" title="statement not covered" >        _pause()</span>;
     }
-    
+&nbsp;
 <span class="fstat-no" title="function not covered" >    function unpause() public onlyOwner {</span>
 <span class="cstat-no" title="statement not covered" >        _unpause()</span>;
     }
@@ -665,7 +671,7 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
         uint256 AvailableValue;
         uint32 originchainID;
         uint32 secondaryChainID;
-        
+&nbsp;
     }
 &nbsp;
     struct TradeClone{
@@ -709,7 +715,7 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
 //         names[_index] = _name;
 //     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    function setSwapID(uint256  _id,uint256 _parentID,address _buyer,uint256 _withdrawamount,uint256 _feeAmount)public onlyOwner whenNotPaused </span>
+<span class="fstat-no" title="function not covered" >    function setSwapID(uint256  _id,uint256 _parentID,address _buyer,uint256 _withdrawamount,uint256 _feeAmount)public onlyOwner whenNotPaused</span>
     {
 <span class="cstat-no" title="statement not covered" >        require(!SwapExisting[_id],"swap still in progress")</span>;
 <span class="cstat-no" title="statement not covered" >        require(TradeExisting[_parentID],"Trade has ended or does not exist")</span>;
@@ -766,7 +772,7 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
          _amount,
          80001,
          420
-         
+&nbsp;
 &nbsp;
   );
   TradeTrack[_id] = data;
@@ -779,7 +785,7 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
 <span class="cstat-no" title="statement not covered" >        require(TradeExisting[_id],"trade Does not exist")</span>;
 <span class="cstat-no" title="statement not covered" >        require(!TradeCloneUpdating[_id],"Please send transaction in some time")</span>;
         TradeCloneUpdating[_id]=true;
-      
+&nbsp;
 <span class="cstat-no" title="statement not covered" >        require(!SwapInProgress[msg.sender][_id],"you can only opt for a trade once")</span>;
         SwapInProgress[msg.sender][_id]=true;
 <span class="cstat-no" title="statement not covered" >        TradeClone memory data = TradeCloneTrack[_id];</span>
@@ -798,8 +804,8 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
 <span class="cstat-no" title="statement not covered" >        uint256 transferAmount=_amount-FeeTranfer;</span>
         data.currentBalance +=(_amount);
         TradeCloneTrack[_id]= data;
-        TradeCloneUpdating[_id]=false;
 <span class="cstat-no" title="statement not covered" >        payable(seller).transfer(transferAmount)</span>;
+        TradeCloneUpdating[_id]=false;
 <span class="cstat-no" title="statement not covered" >        emit BuyerDeposit(_id,msg.sender,_amount);</span>
     }
 &nbsp;
@@ -808,6 +814,7 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
 <span class="cstat-no" title="statement not covered" >        require(SwapExisting[_id],"swap does not exist")</span>;
         SwapExisting[_id]=false;
 <span class="cstat-no" title="statement not covered" >        SwapDetails memory data = SwapTrack[_id];</span>
+<span class="cstat-no" title="statement not covered" >        require(data.WithdrawAmount&gt;0,"withdraw completed")</span>;
 <span class="cstat-no" title="statement not covered" >        uint256 _parentID=data.parentTradeID;</span>
 <span class="cstat-no" title="statement not covered" >        require(!TradeUpdating[_parentID],"Please send transaction in some time")</span>;
         TradeUpdating[_parentID]=true;
@@ -822,9 +829,10 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
 <span class="cstat-no" title="statement not covered" >        require(data.WithdrawAmount&lt;=ParentDetails.AvailableValue,"amount exceeds trade amount please recheck")</span>;
         ParentDetails.AvailableValue-=data.WithdrawAmount;
         data.CompletionStatus=true;
+        data.WithdrawAmount=0;
         TradeTrack[_parentID]=ParentDetails;
         SwapTrack[_id]=data;
-        feeCollected+=data.feeAmount; 
+        feeCollected+=data.feeAmount;
         TradeUpdating[_parentID]=false;
 <span class="cstat-no" title="statement not covered" >        payable(_buyer).transfer(amount)</span>;
 <span class="cstat-no" title="statement not covered" >        emit SwapComplete(_id,_parentID,msg.sender);</span>
@@ -870,7 +878,7 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
        TradeUpdating[_id]=false;
 <span class="cstat-no" title="statement not covered" >         payable(msg.sender).transfer(_amount)</span>;
 <span class="cstat-no" title="statement not covered" >         emit refunded(_id,msg.sender,_amount);</span>
-    }    
+    }
     //  function viewTrades(uint256 id)
     //     public
     //     view
@@ -902,8 +910,9 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
 <span class="fstat-no" title="function not covered" >function withdrawFee() public onlyOwner whenNotPaused</span>
 {
 <span class="cstat-no" title="statement not covered" >    require(feeCollected&gt;0,"no fees available")</span>;
-<span class="cstat-no" title="statement not covered" >   payable(msg.sender).transfer(feeCollected)</span>;
     feeCollected=0;
+<span class="cstat-no" title="statement not covered" >   payable(msg.sender).transfer(feeCollected)</span>;
+&nbsp;
 }
 &nbsp;
 }
@@ -913,7 +922,7 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Feb 07 2023 12:48:49 GMT+0000 (Coordinated Universal Time)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Feb 10 2023 07:38:17 GMT+0000 (Coordinated Universal Time)
 </div>
 </div>
 <script src="../prettify.js"></script>
