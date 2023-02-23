@@ -53,6 +53,8 @@ describe("TreasuryPool deployment and functioning", function () {
         contBalance= await instance4.balanceOf(instance3.address)
         console.log(contBalance.toString())
         });
+
+
         it ('Redeem function as owner should work', async () => {
         const { instance3, instance4, owner, addr1, addr2 } = await loadFixture(deployTokenFixture);
         expect(await instance3.Buy(0,121211,100))
@@ -64,6 +66,22 @@ describe("TreasuryPool deployment and functioning", function () {
         console.log(userBalance.toString())
         console.log(contBalance.toString())
         });
+
+        it ('RedeemNat function as  owner should  work', async () => {
+        const { instance3, instance4, owner, addr1, addr2 } = await loadFixture(deployTokenFixture);
+        expect(await instance3.BuyNat(1212,{value: ethers.utils.parseEther("1")}))
+        contNatbalance= await ethers.provider.getBalance(instance3.address)
+        console.log(contNatbalance.toString())
+        expect(await instance3.RedeemNat(addr2.address,1212))
+        contNatbalance= await ethers.provider.getBalance(instance3.address)
+        userNatBalance= await ethers.provider.getBalance(addr2.address)
+        console.log(userNatBalance.toString())
+        console.log(contNatbalance.toString())
+
+});
+
+it('set')
+
 
 
     });

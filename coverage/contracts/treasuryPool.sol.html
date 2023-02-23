@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">58.06% </span>
+        <span class="strong">83.87% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>18/31</span>
+        <span class='fraction'>26/31</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">32.76% </span>
+        <span class="strong">44.83% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>19/58</span>
+        <span class='fraction'>26/58</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">53.85% </span>
+        <span class="strong">61.54% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>7/13</span>
+        <span class='fraction'>8/13</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">61.9% </span>
+        <span class="strong">83.33% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>26/42</span>
+        <span class='fraction'>35/42</span>
       </div>
     </div>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -260,12 +260,12 @@
 <span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
 <span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-yes">2×</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -284,16 +284,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -415,17 +415,17 @@ BuynatDisable=_disable;
          emit Redeemed(names[_usd], redeemer, _amount,tPtotalBalance,TPbalanceUSD[_usd]);
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >     function RedeemNat(address redeemer, uint256 _amount) public payable onlyOwner whenNotPaused {</span>
-<span class="cstat-no" title="statement not covered" >        require(_amount &gt; 0, "amount cannot be 0")</span>;
-<span class="cstat-no" title="statement not covered" >        require (!Maxminted,"Maximum minting reached")</span>;
-<span class="cstat-no" title="statement not covered" >         require(redeemer !=address(0), "null")</span>;
-<span class="cstat-no" title="statement not covered" >        require (!BuynatDisable,"Cannot buy using native coins anymore")</span>;
-<span class="cstat-no" title="statement not covered" >        require(_amount&lt;=tPtotalBalanceNative)</span>;
-<span class="cstat-no" title="statement not covered" >        string memory network="MATIC";</span>
+     function RedeemNat(address redeemer, uint256 _amount) public payable <span class="missing-if-branch" title="else path not taken" >E</span>onlyOwner <span class="missing-if-branch" title="else path not taken" >E</span>whenNotPaused {
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(_amount &gt; 0, "amount cannot be 0");
+        <span class="missing-if-branch" title="else path not taken" >E</span>require (!Maxminted,"Maximum minting reached");
+         <span class="missing-if-branch" title="else path not taken" >E</span>require(redeemer !=address(0), "null");
+        <span class="missing-if-branch" title="else path not taken" >E</span>require (!BuynatDisable,"Cannot buy using native coins anymore");
+        <span class="missing-if-branch" title="else path not taken" >E</span>require(_amount&lt;=tPtotalBalanceNative);
+        string memory network="MATIC";
         tPtotalBalanceNative -= _amount;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        payable(redeemer).transfer(_amount)</span>;
-<span class="cstat-no" title="statement not covered" >        emit Redeemed(network, redeemer, _amount,tPtotalBalance,tPtotalBalanceNative);</span>
+        payable(redeemer).transfer(_amount);
+        emit Redeemed(network, redeemer, _amount,tPtotalBalance,tPtotalBalanceNative);
     }
 &nbsp;
 <span class="fstat-no" title="function not covered" >    function getTPbalance(uint8 _length ) public view returns(uint256[] memory) {</span>
@@ -445,7 +445,7 @@ BuynatDisable=_disable;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Feb 10 2023 07:38:17 GMT+0000 (Coordinated Universal Time)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Feb 23 2023 18:01:31 GMT+0000 (Coordinated Universal Time)
 </div>
 </div>
 <script src="../prettify.js"></script>
