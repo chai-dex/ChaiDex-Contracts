@@ -93,6 +93,7 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
         require(!SwapExisting[_id],"swap still in progress");
         require(TradeExisting[_parentID],"Trade has ended or does not exist");
         require(_withdrawamount>0,"non zero values only");
+        require(_buyer!=address(0),"invalid address");
         require(_withdrawamount>_feeAmount,"amount should be greater than fee");
         bool status=false;
         SwapDetails memory swapInfo = SwapDetails(
