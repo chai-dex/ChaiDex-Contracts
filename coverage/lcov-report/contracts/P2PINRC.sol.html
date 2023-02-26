@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">4.88% </span>
+        <span class="strong">4.71% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>4/82</span>
+        <span class='fraction'>4/85</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">2.46% </span>
+        <span class="strong">2.42% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>3/122</span>
+        <span class='fraction'>3/124</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">21.43% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>3/14</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">5.22% </span>
+        <span class="strong">5.08% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>6/115</span>
+        <span class='fraction'>6/118</span>
       </div>
     </div>
   </div>
@@ -354,13 +354,7 @@
 309
 310
 311
-312
-313
-314
-315
-316
-317
-318</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+312</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -397,10 +391,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -475,6 +465,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -495,7 +486,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -503,7 +493,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -518,7 +507,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -527,8 +515,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -667,6 +653,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -724,8 +712,6 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
         uint256 endtime;
         uint256 DepositValue;
         uint256 AvailableValue;
-        uint32 originchainID;
-        uint32 secondaryChainID;
 &nbsp;
     }
 &nbsp;
@@ -736,8 +722,6 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
       uint256 endtime;
       uint256 MaxBalance;
       uint256 currentBalance;
-      uint32 originchainID;
-      uint32 secondaryChainID;
        uint256 feeAmount;
     }
 &nbsp;
@@ -790,6 +774,7 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
 <span class="cstat-no" title="statement not covered" >        require(TradeExisting[_parentID],"Trade has ended or does not exist")</span>;
 <span class="cstat-no" title="statement not covered" >        require(_withdrawamount&gt;0,"non zero values only")</span>;
 <span class="cstat-no" title="statement not covered" >        require(_withdrawamount&gt;_feeAmount,"amount should be greater than fee")</span>;
+<span class="cstat-no" title="statement not covered" >        require(_buyer!=address(0),"invalid address")</span>;
 <span class="cstat-no" title="statement not covered" >        bool status=false;</span>
 <span class="cstat-no" title="statement not covered" >        SwapDetails memory swapInfo = SwapDetails(</span>
             _id,
@@ -817,8 +802,6 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
             _Tradeclonetime,
             _maxAmount,
             _currentbalance,
-            420,
-            80001,
             _feetoBepaid
         );
         TradeCloneTrack[_id]=CloneInfo;
@@ -839,10 +822,7 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
          _seller,
          _tradeTime,
          _amount,
-         _amount,
-         80001,
-         420
-&nbsp;
+         _amount
 &nbsp;
   );
 &nbsp;
@@ -986,10 +966,12 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
 {
 <span class="cstat-no" title="statement not covered" >    require(feeCollected&gt;0,"no fees available")</span>;
 <span class="cstat-no" title="statement not covered" >    require(CHTBalance&gt;0,"no fees available")</span>;
+<span class="cstat-no" title="statement not covered" >    uint256 _cht=CHTBalance;</span>
+<span class="cstat-no" title="statement not covered" >    uint256 _fee=feeCollected;</span>
     CHTBalance=0;
     feeCollected=0;
-<span class="cstat-no" title="statement not covered" >    IERC20Upgradeable(INRC).safeTransfer(msg.sender, feeCollected)</span>;
-<span class="cstat-no" title="statement not covered" >    IERC20Upgradeable(Feetoken).safeTransfer(msg.sender, CHTBalance)</span>;
+<span class="cstat-no" title="statement not covered" >    IERC20Upgradeable(INRC).safeTransfer(msg.sender, _fee)</span>;
+<span class="cstat-no" title="statement not covered" >    IERC20Upgradeable(Feetoken).safeTransfer(msg.sender, _cht)</span>;
 &nbsp;
 }
 &nbsp;
@@ -1000,7 +982,7 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Feb 23 2023 18:01:31 GMT+0000 (Coordinated Universal Time)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Feb 26 2023 11:43:44 GMT+0000 (Coordinated Universal Time)
 </div>
 </div>
 <script src="../prettify.js"></script>

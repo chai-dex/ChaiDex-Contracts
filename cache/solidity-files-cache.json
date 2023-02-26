@@ -26,9 +26,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -71,9 +68,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -113,9 +107,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -157,9 +148,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -198,9 +186,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -241,9 +226,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -284,9 +266,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -325,9 +304,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -364,9 +340,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -403,9 +376,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -444,9 +414,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -483,9 +450,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -528,9 +492,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -567,9 +528,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -606,9 +564,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -649,9 +604,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -688,9 +640,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -733,9 +682,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -751,8 +697,8 @@
       ]
     },
     "/workspaces/ChaiDex-Contracts-1/contracts/treasuryPool.sol": {
-      "lastModificationDate": 1676880470506,
-      "contentHash": "51bdc1a6d59f1559e05d96184dbf9d34",
+      "lastModificationDate": 1677412803152,
+      "contentHash": "c90319d7f363adb3c5889a6997ee57e4",
       "sourceName": "contracts/treasuryPool.sol",
       "solcConfig": {
         "version": "0.8.17",
@@ -775,9 +721,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -797,8 +740,8 @@
       ]
     },
     "/workspaces/ChaiDex-Contracts-1/contracts/p2pERC.sol": {
-      "lastModificationDate": 1676880470506,
-      "contentHash": "ae40a0f13e66ecede3228536e7e8f032",
+      "lastModificationDate": 1677410173726,
+      "contentHash": "114250582c947d7a29c43ec3a0413794",
       "sourceName": "contracts/p2pERC.sol",
       "solcConfig": {
         "version": "0.8.17",
@@ -821,9 +764,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -843,8 +783,8 @@
       ]
     },
     "/workspaces/ChaiDex-Contracts-1/contracts/P2Pnative.sol": {
-      "lastModificationDate": 1676880470506,
-      "contentHash": "8af0467bc7cbd3117ef77a8ce04b463c",
+      "lastModificationDate": 1677410140233,
+      "contentHash": "2e601dd0a4e3971a0207b7be8590f5b3",
       "sourceName": "contracts/P2Pnative.sol",
       "solcConfig": {
         "version": "0.8.17",
@@ -867,9 +807,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -887,8 +824,8 @@
       ]
     },
     "/workspaces/ChaiDex-Contracts-1/contracts/P2PINRC.sol": {
-      "lastModificationDate": 1676880470506,
-      "contentHash": "95dacce56552e8fd5bf9a72add9d631e",
+      "lastModificationDate": 1677410089720,
+      "contentHash": "0925603ddc11e004ca3525954d66244b",
       "sourceName": "contracts/P2PINRC.sol",
       "solcConfig": {
         "version": "0.8.17",
@@ -911,9 +848,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -933,8 +867,8 @@
       ]
     },
     "/workspaces/ChaiDex-Contracts-1/contracts/LiquidityPool.sol": {
-      "lastModificationDate": 1676880470506,
-      "contentHash": "c39fd717f7606ed5913b16b4cc74eb1b",
+      "lastModificationDate": 1677412692489,
+      "contentHash": "24888a3ff53e161f2198f6d0f0017cc0",
       "sourceName": "contracts/LiquidityPool.sol",
       "solcConfig": {
         "version": "0.8.17",
@@ -957,9 +891,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -1003,9 +934,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -1038,9 +966,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -1082,9 +1007,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -1123,9 +1045,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -1164,9 +1083,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -1203,9 +1119,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -1246,9 +1159,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -1285,9 +1195,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -1324,9 +1231,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -1363,9 +1267,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -1404,9 +1305,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -1447,9 +1345,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -1491,9 +1386,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },
@@ -1533,9 +1425,6 @@
                 "ast"
               ]
             }
-          },
-          "metadata": {
-            "useLiteralContent": false
           }
         }
       },

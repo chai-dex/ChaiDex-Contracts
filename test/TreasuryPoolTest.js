@@ -24,7 +24,7 @@ describe("TreasuryPool deployment and functioning", function () {
           expect(await instance4.transfer(addr2.address,ethers.utils.parseEther("10000000")))
           expect(await instance4.connect(addr1).approve(instance3.address, ethers.utils.parseEther("10000000")))
           expect(await instance4.connect(addr2).approve(instance3.address, ethers.utils.parseEther("10000000")))
-          expect(await instance3.setUSDAddress(0,"USDC",instance4.address,))
+          expect(await instance3.setUSDAddress(0,"USDC",instance4.address))
           expect(await instance4.approve(instance3.address, 5000))
           return {  instance3, instance4, owner, addr1, addr2};
 
@@ -32,7 +32,7 @@ describe("TreasuryPool deployment and functioning", function () {
       }
       it('Treasury Pool works', async () => {
          const { instance3, instance4, owner, addr1, addr2 } = await loadFixture(deployTokenFixture);
-          expect(await instance3.setUSDAddress(0,"USDC",instance4.address,))
+          expect(await instance3.setUSDAddress(0,"USDC",instance4.address))
       });
 
       it ('Buy function should work with maxminted false', async () => {
@@ -44,7 +44,7 @@ describe("TreasuryPool deployment and functioning", function () {
          contNatbalance= await ethers.provider.getBalance(instance3.address)
             console.log(contNatbalance.toString())
         });
-        it ('Buy function should work with maxminted true', async () => {
+        it ('Buy function should not work with maxminted true', async () => {
         const { instance3, instance4, owner, addr1, addr2 } = await loadFixture(deployTokenFixture);
         expect(await instance3.setMinter(true))
         await  expect( instance3.connect(addr1).Buy(0,121211,100)).to.be.revertedWith("Maximum minting reached").then(console.log("reverted as maxminted"));
@@ -80,7 +80,6 @@ describe("TreasuryPool deployment and functioning", function () {
 
 });
 
-it('set')
 
 
 
