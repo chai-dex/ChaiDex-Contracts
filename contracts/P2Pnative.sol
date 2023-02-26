@@ -42,8 +42,6 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
         uint256 endtime;
         uint256 DepositValue;
         uint256 AvailableValue;
-        uint32 originchainID;
-        uint32 secondaryChainID;
 
     }
 
@@ -54,8 +52,6 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
       uint256 endtime;
       uint256 MaxBalance;
       uint256 currentBalance;
-      uint32 originchainID;
-      uint32 secondaryChainID;
        uint256 feeAmount;
     }
 
@@ -121,8 +117,6 @@ event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
             _Tradeclonetime,
             _maxAmount,
             _currentbalance,
-            420,
-            80001,
             _feetoBepaid
         );
         TradeCloneTrack[_id]=CloneInfo;
@@ -143,9 +137,7 @@ uint256 _tradeTime=block.timestamp+_endtime;
          _seller,
          _tradeTime,
          _amount,
-         _amount,
-         80001,
-         420
+         _amount
 
 
   );
@@ -284,8 +276,9 @@ uint256 _tradeTime=block.timestamp+_endtime;
 function withdrawFee() public onlyOwner whenNotPaused
 {
     require(feeCollected>0,"no fees available");
+    uint256 _amount=feeCollected;
     feeCollected=0;
-   payable(msg.sender).transfer(feeCollected);
+   payable(msg.sender).transfer(_amount);
 
 }
 
