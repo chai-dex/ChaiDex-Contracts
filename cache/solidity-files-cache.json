@@ -697,8 +697,8 @@
       ]
     },
     "/workspaces/ChaiDex-Contracts-1/contracts/treasuryPool.sol": {
-      "lastModificationDate": 1677412803152,
-      "contentHash": "c90319d7f363adb3c5889a6997ee57e4",
+      "lastModificationDate": 1677480632092,
+      "contentHash": "054bb9dfadf6907aeff8a80b436b8263",
       "sourceName": "contracts/treasuryPool.sol",
       "solcConfig": {
         "version": "0.8.17",
@@ -1321,8 +1321,8 @@
       ]
     },
     "/workspaces/ChaiDex-Contracts-1/contracts/TPfortron.sol": {
-      "lastModificationDate": 1676880470506,
-      "contentHash": "6c572a0e9fbbf96971217fa99887c2d4",
+      "lastModificationDate": 1677480696916,
+      "contentHash": "084df97e786f92e00947a9206bdb1570",
       "sourceName": "contracts/TPfortron.sol",
       "solcConfig": {
         "version": "0.8.17",

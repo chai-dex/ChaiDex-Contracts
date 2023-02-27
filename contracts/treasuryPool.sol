@@ -97,7 +97,7 @@ BuynatDisable=_disable;
     // upon redeem the money is sent to them and equivalent inrc is burnt
    function Redeem(address redeemer,uint8 _usd, uint256 _amount) public onlyOwner whenNotPaused {
         require(_amount > 0, "amount cannot be 0");
-        require(_amount<=TPbalanceUSD[_usd]);
+        require(_amount<=TPbalanceUSD[_usd],"Not enough balance");
         require(redeemer !=address(0), "null");
         TPbalanceUSD[_usd]-=_amount;
          tPtotalBalance -= _amount;
@@ -111,7 +111,7 @@ BuynatDisable=_disable;
         require (!Maxminted,"Maximum minting reached");
          require(redeemer !=address(0), "null");
         require (!BuynatDisable,"Cannot buy using native coins anymore");
-        require(_amount<=tPtotalBalanceNative);
+        require(_amount<=tPtotalBalanceNative,"Not enough balance");
         string memory network="MATIC";
         tPtotalBalanceNative -= _amount;
 
