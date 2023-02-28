@@ -28,8 +28,8 @@ contract Apy is Ownable {
         require(_amount>0,"amount cannot be 0");
         amount1= 80*_amount/100;
         amount2=20*_amount/100;
-        IERC20(CHT).transferFrom(msg.sender,RP,amount1);
-        IERC20(CHT).transferFrom(msg.sender, MP, amount2);
+        require(IERC20(CHT).transferFrom(msg.sender,RP,amount1),"transaction failed");
+       require(IERC20(CHT).transferFrom(msg.sender, MP, amount2),"transaction failed");
         emit FeePaid(_ID,msg.sender,_amount);
     }
 }

@@ -4,8 +4,10 @@ pragma solidity ^0.8.4;
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
+import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 
 contract TreasuryPoolTron is Ownable ,Pausable {
+    using SafeERC20 for IERC20;
 
     constructor() {}
     event Recieved(string USD,uint256 ID, address buyer, uint256 amount,uint256 balanceNew,uint256 UsdBalance); // upon recieve there should be a mint
@@ -19,7 +21,7 @@ contract TreasuryPoolTron is Ownable ,Pausable {
         bool public Maxminted;
         bool public BuynatDisable;
         mapping(uint8=>uint256) public TPbalanceUSD;
-        
+
 
         uint256 public tPtotalBalance;
         uint256 public tPtotalBalanceNative;
@@ -50,21 +52,22 @@ BuynatDisable=_disable;
     ) public onlyOwner whenNotPaused {
         USDStable[_index] = _USD;
         names[_index] = _name;
-        
+
     }
 
     // Tracks any addition of funds to thee pool and emits event received
     function Buy(uint8 _usd, uint256 MintID,uint256 _amount) public whenNotPaused {
         require(_amount > 0, "amount cannot be 0");
         require (!Maxminted,"Maximum minting reached");
-          TPbalanceUSD[_usd]+=_amount;
-        tPtotalBalance += _amount;
-        
-        IERC20(USDStable[_usd]).transferFrom(
+
+
+        IERC20(USDStable[_usd]).safeTransferFrom(
             msg.sender,
             address(this),
             _amount
         );
+        TPbalanceUSD[_usd]+=_amount;
+        tPtotalBalance += _amount;
       emit Recieved(names[_usd],MintID, msg.sender, _amount,tPtotalBalance,TPbalanceUSD[_usd]);
     }
      function BuyNat(uint256 MintID)public payable whenNotPaused {
@@ -74,7 +77,7 @@ BuynatDisable=_disable;
      string memory network="MATIC";
      tPtotalBalanceNative += msg.value;
      emit Recieved(network,MintID, msg.sender,msg.value,tPtotalBalance,tPtotalBalanceNative);
-    }   
+    }
 
     /**
      * @dev Owner Authorizes the user's redeem request
@@ -82,22 +85,24 @@ BuynatDisable=_disable;
     // upon redeem the money is sent to them and equivalent inrc is burnt
    function Redeem(address redeemer,uint8 _usd, uint256 _amount) public onlyOwner whenNotPaused {
         require(_amount > 0, "amount cannot be 0");
-        require(_amount<=TPbalanceUSD[_usd]);
+        require(redeemer !=address(0), "null");
+        require(_amount<=TPbalanceUSD[_usd],"Insufficient balance");
         TPbalanceUSD[_usd]-=_amount;
          tPtotalBalance -= _amount;
-        
-        IERC20(USDStable[_usd]).transfer(redeemer, _amount);
+
+        IERC20(USDStable[_usd]).safeTransfer(redeemer, _amount);
          emit Redeemed(names[_usd], redeemer, _amount,tPtotalBalance,TPbalanceUSD[_usd]);
     }
 
      function RedeemNat(address redeemer, uint256 _amount) public payable onlyOwner whenNotPaused {
         require(_amount > 0, "amount cannot be 0");
         require (!Maxminted,"Maximum minting reached");
+        require(redeemer !=address(0), "null");
         require (!BuynatDisable,"Cannot buy using native coins anymore");
-        require(_amount<=tPtotalBalanceNative);
+        require(_amount<=tPtotalBalanceNative,"Insufficient balance");
         string memory network="MATIC";
         tPtotalBalanceNative -= _amount;
-        
+
         payable(redeemer).transfer(_amount);
         emit Redeemed(network, redeemer, _amount,tPtotalBalance,tPtotalBalanceNative);
     }

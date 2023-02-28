@@ -21,6 +21,14 @@ module.exports = {
           privateKey: process.env.PRIVATE_KEY,
           balance: "1000000000000000000000",
         },
+        {
+          privateKey: process.env.PRIVATE_KEY2,
+          balance: "1000000000000000000000",
+        },
+        {
+          privateKey: process.env.PRIVATE_KEY3,
+          balance: "1000000000000000000000",
+        },
       ],
     },
     matic: {
@@ -31,7 +39,7 @@ module.exports = {
     //   url: `https://testnet-rpc.brisescan.com`,
     //   accounts: {
     //     mnemonic:
-          
+
     //   },
     // },
 

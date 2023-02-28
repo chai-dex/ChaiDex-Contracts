@@ -1,8 +1,8 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/workspace/ChaiDex-Contracts-1/contracts/Chait.sol": {
-      "lastModificationDate": 1674981182539,
+    "/workspaces/ChaiDex-Contracts-1/contracts/Chait.sol": {
+      "lastModificationDate": 1676880470506,
       "contentHash": "8996bfe107668fe8b9ccfa658d543357",
       "sourceName": "contracts/Chait.sol",
       "solcConfig": {
@@ -43,8 +43,8 @@
         "Chai"
       ]
     },
-    "/workspace/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol": {
-      "lastModificationDate": 1674985193791,
+    "/workspaces/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol": {
+      "lastModificationDate": 1676880471326,
       "contentHash": "403ce8273abde646bff81558ddf512ad",
       "sourceName": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
       "solcConfig": {
@@ -82,8 +82,8 @@
         "OwnableUpgradeable"
       ]
     },
-    "/workspace/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol": {
-      "lastModificationDate": 1674985193075,
+    "/workspaces/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol": {
+      "lastModificationDate": 1676880471330,
       "contentHash": "f6a254bc3e3c9c456a7a630fc4cb8ca4",
       "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol",
       "solcConfig": {
@@ -123,8 +123,46 @@
         "ERC20Upgradeable"
       ]
     },
-    "/workspace/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol": {
-      "lastModificationDate": 1674985193899,
+    "/workspaces/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol": {
+      "lastModificationDate": 1676880471330,
+      "contentHash": "b98e2f3a856e6e7f2106fb919bacab9e",
+      "sourceName": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../utils/AddressUpgradeable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.2"
+      ],
+      "artifacts": [
+        "Initializable"
+      ]
+    },
+    "/workspaces/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol": {
+      "lastModificationDate": 1676880471330,
       "contentHash": "eb2268e7f08e65339fdf577dad98c925",
       "sourceName": "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
       "solcConfig": {
@@ -163,46 +201,8 @@
         "UUPSUpgradeable"
       ]
     },
-    "/workspace/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol": {
-      "lastModificationDate": 1674985193755,
-      "contentHash": "b98e2f3a856e6e7f2106fb919bacab9e",
-      "sourceName": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
-      "solcConfig": {
-        "version": "0.8.17",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../../utils/AddressUpgradeable.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.2"
-      ],
-      "artifacts": [
-        "Initializable"
-      ]
-    },
-    "/workspace/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/extensions/ERC20BurnableUpgradeable.sol": {
-      "lastModificationDate": 1674985192979,
+    "/workspaces/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/extensions/ERC20BurnableUpgradeable.sol": {
+      "lastModificationDate": 1676880471330,
       "contentHash": "8c58ae2b48b49da0634bc2db620540cf",
       "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/ERC20BurnableUpgradeable.sol",
       "solcConfig": {
@@ -241,8 +241,8 @@
         "ERC20BurnableUpgradeable"
       ]
     },
-    "/workspace/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol": {
-      "lastModificationDate": 1674985192491,
+    "/workspaces/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol": {
+      "lastModificationDate": 1676880471330,
       "contentHash": "6200b84950eb05b4a92a39fd1d6e0f9b",
       "sourceName": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol",
       "solcConfig": {
@@ -279,8 +279,8 @@
         "ContextUpgradeable"
       ]
     },
-    "/workspace/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol": {
-      "lastModificationDate": 1674985192403,
+    "/workspaces/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol": {
+      "lastModificationDate": 1676880471330,
       "contentHash": "d42e87f4fba2b03ab4d3c14cb53d0c51",
       "sourceName": "@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol",
       "solcConfig": {
@@ -315,8 +315,8 @@
         "AddressUpgradeable"
       ]
     },
-    "/workspace/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol": {
-      "lastModificationDate": 1674985193587,
+    "/workspaces/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol": {
+      "lastModificationDate": 1676880471330,
       "contentHash": "a9ed3c7bc7d9ebb5e34f20829274f088",
       "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol",
       "solcConfig": {
@@ -351,8 +351,8 @@
         "IERC20Upgradeable"
       ]
     },
-    "/workspace/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/extensions/IERC20MetadataUpgradeable.sol": {
-      "lastModificationDate": 1674985193583,
+    "/workspaces/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/extensions/IERC20MetadataUpgradeable.sol": {
+      "lastModificationDate": 1676880471330,
       "contentHash": "9efcd5467a7f0bf533910ee8a267adb2",
       "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/IERC20MetadataUpgradeable.sol",
       "solcConfig": {
@@ -389,8 +389,8 @@
         "IERC20MetadataUpgradeable"
       ]
     },
-    "/workspace/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts-upgradeable/interfaces/draft-IERC1822Upgradeable.sol": {
-      "lastModificationDate": 1674985192759,
+    "/workspaces/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts-upgradeable/interfaces/draft-IERC1822Upgradeable.sol": {
+      "lastModificationDate": 1676880471330,
       "contentHash": "a6883cfd85607b16c121a02728369eb3",
       "sourceName": "@openzeppelin/contracts-upgradeable/interfaces/draft-IERC1822Upgradeable.sol",
       "solcConfig": {
@@ -425,8 +425,8 @@
         "IERC1822ProxiableUpgradeable"
       ]
     },
-    "/workspace/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol": {
-      "lastModificationDate": 1674985192975,
+    "/workspaces/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol": {
+      "lastModificationDate": 1676880471330,
       "contentHash": "d1ceeaa35b60471b1c6e50d29d70354a",
       "sourceName": "@openzeppelin/contracts-upgradeable/proxy/ERC1967/ERC1967UpgradeUpgradeable.sol",
       "solcConfig": {
@@ -467,8 +467,8 @@
         "ERC1967UpgradeUpgradeable"
       ]
     },
-    "/workspace/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts-upgradeable/utils/StorageSlotUpgradeable.sol": {
-      "lastModificationDate": 1674985193887,
+    "/workspaces/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts-upgradeable/utils/StorageSlotUpgradeable.sol": {
+      "lastModificationDate": 1676880471330,
       "contentHash": "731fafe5fdaca6e0749253ab7ce7d3b9",
       "sourceName": "@openzeppelin/contracts-upgradeable/utils/StorageSlotUpgradeable.sol",
       "solcConfig": {
@@ -503,8 +503,8 @@
         "StorageSlotUpgradeable"
       ]
     },
-    "/workspace/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts-upgradeable/proxy/beacon/IBeaconUpgradeable.sol": {
-      "lastModificationDate": 1674985193463,
+    "/workspaces/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts-upgradeable/proxy/beacon/IBeaconUpgradeable.sol": {
+      "lastModificationDate": 1676880471330,
       "contentHash": "21bffd733b4ca013e125a0ffe2e52254",
       "sourceName": "@openzeppelin/contracts-upgradeable/proxy/beacon/IBeaconUpgradeable.sol",
       "solcConfig": {
@@ -539,10 +539,10 @@
         "IBeaconUpgradeable"
       ]
     },
-    "/workspace/ChaiDex-Contracts-1/contracts/treasuryPool.sol": {
-      "lastModificationDate": 1674982233638,
-      "contentHash": "045ce7a90ab5e74b59cb60014833700e",
-      "sourceName": "contracts/treasuryPool.sol",
+    "/workspaces/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol": {
+      "lastModificationDate": 1676880471330,
+      "contentHash": "c7dc9c967eb71371d53462f02b280441",
+      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol",
       "solcConfig": {
         "version": "0.8.17",
         "settings": {
@@ -568,60 +568,55 @@
         }
       },
       "imports": [
-        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
-        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.4"
-      ],
-      "artifacts": [
-        "TreasuryPool"
-      ]
-    },
-    "/workspace/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol": {
-      "lastModificationDate": 1674985193799,
-      "contentHash": "cbe53d6b803c1102081e00b3a0418ea3",
-      "sourceName": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
-      "solcConfig": {
-        "version": "0.8.17",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "../utils/ContextUpgradeable.sol",
-        "../proxy/utils/Initializable.sol"
+        "../IERC20Upgradeable.sol",
+        "../extensions/draft-IERC20PermitUpgradeable.sol",
+        "../../../utils/AddressUpgradeable.sol"
       ],
       "versionPragmas": [
         "^0.8.0"
       ],
       "artifacts": [
-        "PausableUpgradeable"
+        "SafeERC20Upgradeable"
       ]
     },
-    "/workspace/ChaiDex-Contracts-1/contracts/INRC.sol": {
-      "lastModificationDate": 1674982187498,
+    "/workspaces/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts-upgradeable/token/ERC20/extensions/draft-IERC20PermitUpgradeable.sol": {
+      "lastModificationDate": 1676880471330,
+      "contentHash": "afab576c4d1f55fbf293a0daf3826e31",
+      "sourceName": "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/draft-IERC20PermitUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC20PermitUpgradeable"
+      ]
+    },
+    "/workspaces/ChaiDex-Contracts-1/contracts/INRC.sol": {
+      "lastModificationDate": 1676880470506,
       "contentHash": "9802235fe2c766170fc7fc6461a0b00d",
       "sourceName": "contracts/INRC.sol",
       "solcConfig": {
@@ -662,9 +657,91 @@
         "INRCoin"
       ]
     },
-    "/workspace/ChaiDex-Contracts-1/contracts/p2pERC.sol": {
-      "lastModificationDate": 1674982201030,
-      "contentHash": "fcf3650af4420e8bbf8259b33572e268",
+    "/workspaces/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol": {
+      "lastModificationDate": 1676880471330,
+      "contentHash": "cbe53d6b803c1102081e00b3a0418ea3",
+      "sourceName": "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/ContextUpgradeable.sol",
+        "../proxy/utils/Initializable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "PausableUpgradeable"
+      ]
+    },
+    "/workspaces/ChaiDex-Contracts-1/contracts/treasuryPool.sol": {
+      "lastModificationDate": 1677480632092,
+      "contentHash": "054bb9dfadf6907aeff8a80b436b8263",
+      "sourceName": "contracts/treasuryPool.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "TreasuryPool"
+      ]
+    },
+    "/workspaces/ChaiDex-Contracts-1/contracts/p2pERC.sol": {
+      "lastModificationDate": 1677410173726,
+      "contentHash": "114250582c947d7a29c43ec3a0413794",
       "sourceName": "contracts/p2pERC.sol",
       "solcConfig": {
         "version": "0.8.17",
@@ -695,7 +772,8 @@
         "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
         "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
         "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol"
+        "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol"
       ],
       "versionPragmas": [
         "^0.8.4"
@@ -704,9 +782,9 @@
         "EscrowERC"
       ]
     },
-    "/workspace/ChaiDex-Contracts-1/contracts/P2Pnative.sol": {
-      "lastModificationDate": 1674982230038,
-      "contentHash": "230bc1afd532f3c6603a9ebc40fc3a84",
+    "/workspaces/ChaiDex-Contracts-1/contracts/P2Pnative.sol": {
+      "lastModificationDate": 1677410140233,
+      "contentHash": "2e601dd0a4e3971a0207b7be8590f5b3",
       "sourceName": "contracts/P2Pnative.sol",
       "solcConfig": {
         "version": "0.8.17",
@@ -745,9 +823,9 @@
         "EscrowNative"
       ]
     },
-    "/workspace/ChaiDex-Contracts-1/contracts/P2PINRC.sol": {
-      "lastModificationDate": 1674982576590,
-      "contentHash": "44c0f98cab5197a7eaf78b0a0d233413",
+    "/workspaces/ChaiDex-Contracts-1/contracts/P2PINRC.sol": {
+      "lastModificationDate": 1677410089720,
+      "contentHash": "0925603ddc11e004ca3525954d66244b",
       "sourceName": "contracts/P2PINRC.sol",
       "solcConfig": {
         "version": "0.8.17",
@@ -778,7 +856,8 @@
         "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
         "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
         "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol"
+        "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol"
       ],
       "versionPragmas": [
         "^0.8.4"
@@ -787,9 +866,9 @@
         "EscrowINRC"
       ]
     },
-    "/workspace/ChaiDex-Contracts-1/contracts/LiquidityPool.sol": {
-      "lastModificationDate": 1674982151678,
-      "contentHash": "a0046a7a5126ebc3d9ba4b1c4e1a90d4",
+    "/workspaces/ChaiDex-Contracts-1/contracts/LiquidityPool.sol": {
+      "lastModificationDate": 1677412692489,
+      "contentHash": "24888a3ff53e161f2198f6d0f0017cc0",
       "sourceName": "contracts/LiquidityPool.sol",
       "solcConfig": {
         "version": "0.8.17",
@@ -820,7 +899,8 @@
         "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
         "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
         "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol"
+        "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol"
       ],
       "versionPragmas": [
         "^0.8.4"
@@ -829,8 +909,8 @@
         "LiquidityPool"
       ]
     },
-    "/workspace/ChaiDex-Contracts-1/contracts/HTLC.sol": {
-      "lastModificationDate": 1674981182539,
+    "/workspaces/ChaiDex-Contracts-1/contracts/HTLC.sol": {
+      "lastModificationDate": 1676880470506,
       "contentHash": "acddf24642cda25f94a88934d8faea5e",
       "sourceName": "contracts/HTLC.sol",
       "solcConfig": {
@@ -861,9 +941,9 @@
       "versionPragmas": [],
       "artifacts": []
     },
-    "/workspace/ChaiDex-Contracts-1/contracts/LPfortron.sol": {
-      "lastModificationDate": 1674981182539,
-      "contentHash": "9a67ecd3f9fd18d4f9376c0e3885910f",
+    "/workspaces/ChaiDex-Contracts-1/contracts/LPfortron.sol": {
+      "lastModificationDate": 1676880470506,
+      "contentHash": "bba8a223ebcf32db0d290b0624305a73",
       "sourceName": "contracts/LPfortron.sol",
       "solcConfig": {
         "version": "0.8.17",
@@ -892,7 +972,8 @@
       "imports": [
         "@openzeppelin/contracts/access/Ownable.sol",
         "@openzeppelin/contracts/token/ERC20/IERC20.sol",
-        "@openzeppelin/contracts/security/Pausable.sol"
+        "@openzeppelin/contracts/security/Pausable.sol",
+        "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol"
       ],
       "versionPragmas": [
         "^0.8.4"
@@ -901,8 +982,8 @@
         "LiquidityPoolTron"
       ]
     },
-    "/workspace/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
-      "lastModificationDate": 1674985193783,
+    "/workspaces/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
+      "lastModificationDate": 1676880471334,
       "contentHash": "e436cea06129be2c73cda4b1acc848b5",
       "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
       "solcConfig": {
@@ -939,8 +1020,8 @@
         "Ownable"
       ]
     },
-    "/workspace/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts/security/Pausable.sol": {
-      "lastModificationDate": 1674985193791,
+    "/workspaces/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts/security/Pausable.sol": {
+      "lastModificationDate": 1676880471334,
       "contentHash": "25c8108f36fdd472bc78d4c4af240c11",
       "sourceName": "@openzeppelin/contracts/security/Pausable.sol",
       "solcConfig": {
@@ -977,8 +1058,8 @@
         "Pausable"
       ]
     },
-    "/workspace/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
-      "lastModificationDate": 1674985193579,
+    "/workspaces/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+      "lastModificationDate": 1676880471334,
       "contentHash": "ad7c2d0af148c8f9f097d65deeb4da6b",
       "sourceName": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
       "solcConfig": {
@@ -1013,8 +1094,48 @@
         "IERC20"
       ]
     },
-    "/workspace/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts/utils/Context.sol": {
-      "lastModificationDate": 1674985192651,
+    "/workspaces/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol": {
+      "lastModificationDate": 1676880471334,
+      "contentHash": "3a843b05b85a270e9455e3d2e804e633",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../IERC20.sol",
+        "../extensions/draft-IERC20Permit.sol",
+        "../../../utils/Address.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "SafeERC20"
+      ]
+    },
+    "/workspaces/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts/utils/Context.sol": {
+      "lastModificationDate": 1676880471334,
       "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
       "sourceName": "@openzeppelin/contracts/utils/Context.sol",
       "solcConfig": {
@@ -1049,8 +1170,80 @@
         "Context"
       ]
     },
-    "/workspace/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
-      "lastModificationDate": 1674985193583,
+    "/workspaces/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts/utils/Address.sol": {
+      "lastModificationDate": 1676880471334,
+      "contentHash": "c476b3895a94798b88a4bb97399e6dfe",
+      "sourceName": "@openzeppelin/contracts/utils/Address.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.1"
+      ],
+      "artifacts": [
+        "Address"
+      ]
+    },
+    "/workspaces/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts/token/ERC20/extensions/draft-IERC20Permit.sol": {
+      "lastModificationDate": 1676880471334,
+      "contentHash": "fb77f144244b9ab12533aa6ce85ef8c5",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/draft-IERC20Permit.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC20Permit"
+      ]
+    },
+    "/workspaces/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+      "lastModificationDate": 1676880471334,
       "contentHash": "909ab67fc5c25033fe6cd364f8c056f9",
       "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
       "solcConfig": {
@@ -1087,8 +1280,8 @@
         "IERC20Metadata"
       ]
     },
-    "/workspace/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
-      "lastModificationDate": 1674985193071,
+    "/workspaces/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
+      "lastModificationDate": 1676880471334,
       "contentHash": "af7bd64e1cfefbf6cb07f2adc1a25392",
       "sourceName": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
       "solcConfig": {
@@ -1127,9 +1320,9 @@
         "ERC20"
       ]
     },
-    "/workspace/ChaiDex-Contracts-1/contracts/TPfortron.sol": {
-      "lastModificationDate": 1674981182539,
-      "contentHash": "e9c4876e5cd51bda15e5fd63cfba1c38",
+    "/workspaces/ChaiDex-Contracts-1/contracts/TPfortron.sol": {
+      "lastModificationDate": 1677480696916,
+      "contentHash": "084df97e786f92e00947a9206bdb1570",
       "sourceName": "contracts/TPfortron.sol",
       "solcConfig": {
         "version": "0.8.17",
@@ -1158,7 +1351,8 @@
       "imports": [
         "@openzeppelin/contracts/access/Ownable.sol",
         "@openzeppelin/contracts/token/ERC20/IERC20.sol",
-        "@openzeppelin/contracts/security/Pausable.sol"
+        "@openzeppelin/contracts/security/Pausable.sol",
+        "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol"
       ],
       "versionPragmas": [
         "^0.8.4"
@@ -1167,9 +1361,9 @@
         "TreasuryPoolTron"
       ]
     },
-    "/workspace/ChaiDex-Contracts-1/contracts/apy.sol": {
-      "lastModificationDate": 1674981182539,
-      "contentHash": "287bfd940f68cc08a0fec05db2421d30",
+    "/workspaces/ChaiDex-Contracts-1/contracts/apy.sol": {
+      "lastModificationDate": 1676880470506,
+      "contentHash": "9f4637cbf7ae87913ae25238350286d2",
       "sourceName": "contracts/apy.sol",
       "solcConfig": {
         "version": "0.8.17",
@@ -1206,8 +1400,8 @@
         "Apy"
       ]
     },
-    "/workspace/ChaiDex-Contracts-1/contracts/Test_usd.sol": {
-      "lastModificationDate": 1674981182539,
+    "/workspaces/ChaiDex-Contracts-1/contracts/Test_usd.sol": {
+      "lastModificationDate": 1676880470506,
       "contentHash": "a904b8c893ea44cff750b2ac469f7379",
       "sourceName": "contracts/Test_usd.sol",
       "solcConfig": {

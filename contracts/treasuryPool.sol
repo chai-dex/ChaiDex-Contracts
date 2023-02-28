@@ -6,8 +6,9 @@ import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol";
 contract TreasuryPool is Initializable, UUPSUpgradeable,PausableUpgradeable, OwnableUpgradeable  {
-
+using SafeERC20Upgradeable for IERC20Upgradeable;
 function initialize() public initializer {
        __UUPSUpgradeable_init();
        __Ownable_init();
@@ -32,7 +33,7 @@ function _authorizeUpgrade(address newContract) internal override onlyOwner {}
         bool public Maxminted;
         bool public BuynatDisable;
         mapping(uint8=>uint256) public TPbalanceUSD;
-        
+
 
         uint256 public tPtotalBalance;
         uint256 public tPtotalBalanceNative;
@@ -63,21 +64,22 @@ BuynatDisable=_disable;
     ) public onlyOwner whenNotPaused {
         USDStable[_index] = _USD;
         names[_index] = _name;
-        
+
     }
 
     // Tracks any addition of funds to thee pool and emits event received
     function Buy(uint8 _usd, uint256 MintID,uint256 _amount) public whenNotPaused {
         require(_amount > 0, "amount cannot be 0");
         require (!Maxminted,"Maximum minting reached");
-          TPbalanceUSD[_usd]+=_amount;
-        tPtotalBalance += _amount;
-        
-        IERC20Upgradeable(USDStable[_usd]).transferFrom(
+
+
+        IERC20Upgradeable(USDStable[_usd]).safeTransferFrom(
             msg.sender,
             address(this),
             _amount
         );
+        TPbalanceUSD[_usd]+=_amount;
+        tPtotalBalance += _amount;
       emit Recieved(names[_usd],MintID, msg.sender, _amount,tPtotalBalance,TPbalanceUSD[_usd]);
     }
      function BuyNat(uint256 MintID)public payable whenNotPaused {
@@ -87,7 +89,7 @@ BuynatDisable=_disable;
      string memory network="MATIC";
      tPtotalBalanceNative += msg.value;
      emit Recieved(network,MintID, msg.sender,msg.value,tPtotalBalance,tPtotalBalanceNative);
-    }   
+    }
 
     /**
      * @dev Owner Authorizes the user's redeem request
@@ -95,22 +97,24 @@ BuynatDisable=_disable;
     // upon redeem the money is sent to them and equivalent inrc is burnt
    function Redeem(address redeemer,uint8 _usd, uint256 _amount) public onlyOwner whenNotPaused {
         require(_amount > 0, "amount cannot be 0");
-        require(_amount<=TPbalanceUSD[_usd]);
+        require(_amount<=TPbalanceUSD[_usd],"Not enough balance");
+        require(redeemer !=address(0), "null");
         TPbalanceUSD[_usd]-=_amount;
          tPtotalBalance -= _amount;
-        
-        IERC20Upgradeable(USDStable[_usd]).transfer(redeemer, _amount);
+
+        IERC20Upgradeable(USDStable[_usd]).safeTransfer(redeemer, _amount);
          emit Redeemed(names[_usd], redeemer, _amount,tPtotalBalance,TPbalanceUSD[_usd]);
     }
 
      function RedeemNat(address redeemer, uint256 _amount) public payable onlyOwner whenNotPaused {
         require(_amount > 0, "amount cannot be 0");
         require (!Maxminted,"Maximum minting reached");
+         require(redeemer !=address(0), "null");
         require (!BuynatDisable,"Cannot buy using native coins anymore");
-        require(_amount<=tPtotalBalanceNative);
+        require(_amount<=tPtotalBalanceNative,"Not enough balance");
         string memory network="MATIC";
         tPtotalBalanceNative -= _amount;
-        
+
         payable(redeemer).transfer(_amount);
         emit Redeemed(network, redeemer, _amount,tPtotalBalance,tPtotalBalanceNative);
     }

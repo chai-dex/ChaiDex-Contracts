@@ -6,7 +6,9 @@ import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol";
 contract LiquidityPool is Initializable, UUPSUpgradeable, OwnableUpgradeable,PausableUpgradeable {
+    using SafeERC20Upgradeable for IERC20Upgradeable;
     /**
      * Event Stake
      * Note:
@@ -25,7 +27,7 @@ contract LiquidityPool is Initializable, UUPSUpgradeable, OwnableUpgradeable,Pau
  function pause() public onlyOwner {
         _pause();
     }
-    
+
     function unpause() public onlyOwner {
         _unpause();
     }
@@ -86,13 +88,13 @@ contract LiquidityPool is Initializable, UUPSUpgradeable, OwnableUpgradeable,Pau
     uint256 public totalLiquidity;
     bool public epochover;
     bool public unstakable;
-    
+
 
     //confirmations for tht risky withdrawal *********************************************************
 //     bool public gate1;
 //     bool public gate2;
 //     bool public gate3;
-     
+
 // function gate1confirm(bool _confirm)public onlyOwner whenNotPaused {
 //  gate1=_confirm;
 // }
@@ -106,7 +108,7 @@ contract LiquidityPool is Initializable, UUPSUpgradeable, OwnableUpgradeable,Pau
 // }
 //*********************************************************************************************************
 
-    
+
 
     /**
      * @dev Updates the address of the USD stable coins in the list
@@ -126,7 +128,7 @@ unstakable=_over;
     ) public whenNotPaused onlyOwner {
         USDStable[_index] = _USD;
         names[_index] = _name;
-        
+
     }
 
     /**
@@ -170,6 +172,11 @@ unstakable=_over;
         // if(unstakedMax[msg.sender][_usd]){
         //     require(_amount > liquidityPool[msg.sender][_usd],"stake must be greater than 20% of previous stake");
         // }
+        IERC20Upgradeable(USDStable[_usd]).safeTransferFrom(
+            msg.sender,
+            address(this),
+            _amount
+        ) ;
         liquidityPool[msg.sender][_usd] += _amount;
         StakerLiquidity[msg.sender]+=_amount;
         unstakedMax[msg.sender][_usd]=false;
@@ -179,13 +186,6 @@ unstakable=_over;
           stakers.push(msg.sender);
           OldStaker[msg.sender]=true;
         }
-        
-        IERC20Upgradeable(USDStable[_usd]).transferFrom(
-            msg.sender,
-            address(this),
-            _amount
-        );
-        
         emit Stake(names[_usd], msg.sender, _amount,liquidityPool[msg.sender][_usd],StakerLiquidity[msg.sender]);
     }
 
@@ -211,9 +211,9 @@ unstakable=_over;
         StakerLiquidity[msg.sender]-=_amount;
         LPbalanceUSD[_usd]-=_amount;
         totalLiquidity -= _amount;
-        IERC20Upgradeable(USDStable[_usd]).transfer(msg.sender, _amount);
+        IERC20Upgradeable(USDStable[_usd]).safeTransfer(msg.sender, _amount);
         emit Unstake(names[_usd], msg.sender, _amount,liquidityPool[msg.sender][_usd],StakerLiquidity[msg.sender]);
-        
+
     }
 function _unstakeAll(uint8 _usd) internal whenNotPaused {
 
@@ -227,15 +227,15 @@ function _unstakeAll(uint8 _usd) internal whenNotPaused {
         LPbalanceUSD[_usd]-=balance;
         totalLiquidity -= balance;
         liquidityPoolStakes[msg.sender][_usd] -= 1;
-        
-        IERC20Upgradeable(USDStable[_usd]).transfer(msg.sender,balance);
+
+    IERC20Upgradeable(USDStable[_usd]).safeTransfer(msg.sender,balance);
         emit Unstake(names[_usd], msg.sender, balance,liquidityPool[msg.sender][_usd],StakerLiquidity[msg.sender]);
-        
+
 }
 
 function getLPbalance(uint8 _length ) public view returns(uint256[] memory) {
      uint256[] memory Balances=new uint256[](_length);
-for (uint8 i; i <_length ; i++)
+for (uint8 i=0; i <_length ; i++)
 {
     Balances[i]= LPbalanceUSD[i];
 }
