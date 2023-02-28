@@ -1,48 +1,6 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/workspaces/ChaiDex-Contracts-1/contracts/Chait.sol": {
-      "lastModificationDate": 1676880470506,
-      "contentHash": "8996bfe107668fe8b9ccfa658d543357",
-      "sourceName": "contracts/Chait.sol",
-      "solcConfig": {
-        "version": "0.8.17",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/ERC20BurnableUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
-        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.4"
-      ],
-      "artifacts": [
-        "Chai"
-      ]
-    },
     "/workspaces/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol": {
       "lastModificationDate": 1676880471326,
       "contentHash": "403ce8273abde646bff81558ddf512ad",
@@ -615,48 +573,6 @@
         "IERC20PermitUpgradeable"
       ]
     },
-    "/workspaces/ChaiDex-Contracts-1/contracts/INRC.sol": {
-      "lastModificationDate": 1676880470506,
-      "contentHash": "9802235fe2c766170fc7fc6461a0b00d",
-      "sourceName": "contracts/INRC.sol",
-      "solcConfig": {
-        "version": "0.8.17",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
-        "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.4"
-      ],
-      "artifacts": [
-        "INRCoin"
-      ]
-    },
     "/workspaces/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol": {
       "lastModificationDate": 1676880471330,
       "contentHash": "cbe53d6b803c1102081e00b3a0418ea3",
@@ -694,49 +610,6 @@
       ],
       "artifacts": [
         "PausableUpgradeable"
-      ]
-    },
-    "/workspaces/ChaiDex-Contracts-1/contracts/treasuryPool.sol": {
-      "lastModificationDate": 1677480632092,
-      "contentHash": "054bb9dfadf6907aeff8a80b436b8263",
-      "sourceName": "contracts/treasuryPool.sol",
-      "solcConfig": {
-        "version": "0.8.17",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
-        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.4"
-      ],
-      "artifacts": [
-        "TreasuryPool"
       ]
     },
     "/workspaces/ChaiDex-Contracts-1/contracts/p2pERC.sol": {
@@ -866,49 +739,6 @@
         "EscrowINRC"
       ]
     },
-    "/workspaces/ChaiDex-Contracts-1/contracts/LiquidityPool.sol": {
-      "lastModificationDate": 1677412692489,
-      "contentHash": "24888a3ff53e161f2198f6d0f0017cc0",
-      "sourceName": "contracts/LiquidityPool.sol",
-      "solcConfig": {
-        "version": "0.8.17",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
-        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
-        "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.4"
-      ],
-      "artifacts": [
-        "LiquidityPool"
-      ]
-    },
     "/workspaces/ChaiDex-Contracts-1/contracts/HTLC.sol": {
       "lastModificationDate": 1676880470506,
       "contentHash": "acddf24642cda25f94a88934d8faea5e",
@@ -940,47 +770,6 @@
       "imports": [],
       "versionPragmas": [],
       "artifacts": []
-    },
-    "/workspaces/ChaiDex-Contracts-1/contracts/LPfortron.sol": {
-      "lastModificationDate": 1676880470506,
-      "contentHash": "bba8a223ebcf32db0d290b0624305a73",
-      "sourceName": "contracts/LPfortron.sol",
-      "solcConfig": {
-        "version": "0.8.17",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/access/Ownable.sol",
-        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
-        "@openzeppelin/contracts/security/Pausable.sol",
-        "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.4"
-      ],
-      "artifacts": [
-        "LiquidityPoolTron"
-      ]
     },
     "/workspaces/ChaiDex-Contracts-1/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
       "lastModificationDate": 1676880471334,
@@ -1320,10 +1109,221 @@
         "ERC20"
       ]
     },
-    "/workspaces/ChaiDex-Contracts-1/contracts/TPfortron.sol": {
-      "lastModificationDate": 1677480696916,
-      "contentHash": "084df97e786f92e00947a9206bdb1570",
-      "sourceName": "contracts/TPfortron.sol",
+    "/workspaces/ChaiDex-Contracts-1/contracts/StableCoinLogic/treasuryPool.sol": {
+      "lastModificationDate": 1677600173951,
+      "contentHash": "054bb9dfadf6907aeff8a80b436b8263",
+      "sourceName": "contracts/StableCoinLogic/treasuryPool.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "TreasuryPool"
+      ]
+    },
+    "/workspaces/ChaiDex-Contracts-1/contracts/StableCoinLogic/LiquidityPool.sol": {
+      "lastModificationDate": 1677600172467,
+      "contentHash": "24888a3ff53e161f2198f6d0f0017cc0",
+      "sourceName": "contracts/StableCoinLogic/LiquidityPool.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "LiquidityPool"
+      ]
+    },
+    "/workspaces/ChaiDex-Contracts-1/contracts/StableCoinLogic/INRC.sol": {
+      "lastModificationDate": 1677600176087,
+      "contentHash": "9802235fe2c766170fc7fc6461a0b00d",
+      "sourceName": "contracts/StableCoinLogic/INRC.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+        "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "INRCoin"
+      ]
+    },
+    "/workspaces/ChaiDex-Contracts-1/contracts/StableCoinLogic/Chait.sol": {
+      "lastModificationDate": 1677600175375,
+      "contentHash": "8996bfe107668fe8b9ccfa658d543357",
+      "sourceName": "contracts/StableCoinLogic/Chait.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/ERC20BurnableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol",
+        "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol",
+        "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "Chai"
+      ]
+    },
+    "/workspaces/ChaiDex-Contracts-1/contracts/StableCoinLogic/LPfortron.sol": {
+      "lastModificationDate": 1677600181307,
+      "contentHash": "87da095eae58a8f4b4bcbb9c284e881c",
+      "sourceName": "contracts/StableCoinLogic/LPfortron.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/access/Ownable.sol",
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "@openzeppelin/contracts/security/Pausable.sol",
+        "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "LiquidityPoolTron"
+      ]
+    },
+    "/workspaces/ChaiDex-Contracts-1/contracts/StableCoinLogic/TPfortron.sol": {
+      "lastModificationDate": 1677600174647,
+      "contentHash": "293d311f34f43dfa823a76f5cc16cc32",
+      "sourceName": "contracts/StableCoinLogic/TPfortron.sol",
       "solcConfig": {
         "version": "0.8.17",
         "settings": {
@@ -1361,10 +1361,10 @@
         "TreasuryPoolTron"
       ]
     },
-    "/workspaces/ChaiDex-Contracts-1/contracts/apy.sol": {
-      "lastModificationDate": 1676880470506,
+    "/workspaces/ChaiDex-Contracts-1/contracts/StableCoinLogic/apy.sol": {
+      "lastModificationDate": 1677600171767,
       "contentHash": "9f4637cbf7ae87913ae25238350286d2",
-      "sourceName": "contracts/apy.sol",
+      "sourceName": "contracts/StableCoinLogic/apy.sol",
       "solcConfig": {
         "version": "0.8.17",
         "settings": {
@@ -1400,10 +1400,10 @@
         "Apy"
       ]
     },
-    "/workspaces/ChaiDex-Contracts-1/contracts/Test_usd.sol": {
-      "lastModificationDate": 1676880470506,
+    "/workspaces/ChaiDex-Contracts-1/contracts/StableCoinLogic/Test_usd.sol": {
+      "lastModificationDate": 1677600177035,
       "contentHash": "a904b8c893ea44cff750b2ac469f7379",
-      "sourceName": "contracts/Test_usd.sol",
+      "sourceName": "contracts/StableCoinLogic/Test_usd.sol",
       "solcConfig": {
         "version": "0.8.17",
         "settings": {
