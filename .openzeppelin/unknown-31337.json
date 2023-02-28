@@ -153,24 +153,24 @@
     },
     {
       "address": "0x7b87B619586B5B69f7daE8291ddB6f307E9cE592",
-      "txHash": "0x3f690e623beecd835cec990d324e7598d4e45df99d846e6e03c4b01fa4ba16c8",
+      "txHash": "0x1110530e323e9cec03fa708a059b1c00077d074b4f30a339abf7ed75478f3712",
       "kind": "uups"
     },
     {
       "address": "0x7BfAF33fd6f332c3061472647f30066c00d9460b",
-      "txHash": "0x2415d9c9d6b2d2c62b3c066a5594b958a37cc1950b4f835ca3becbbb8c0d3f7d",
+      "txHash": "0xee8163f6602b9b5f8e104f4021794cef13252cd943da923748020e40b11c3dd9",
       "kind": "uups"
     },
     {
       "address": "0x5e13AD06A772Cd0F9F3785BC98c4b36254661171",
-      "txHash": "0x24144f7000d0e8d44318712394e277d843afd1b88ed4a3614d4fc48f6fbaf69e",
+      "txHash": "0xc8d5dc7b602a8a3b591d40d1e42ded94bf477436330a6313fbef1a52dc5abc60",
       "kind": "uups"
     }
   ],
   "impls": {
     "c1b47475de44ff60d2eda693a22adc10d2e58935261b6c58da0cfd416446eb30": {
       "address": "0x162459Bb429a63D2e31Fe2d1cdb5b058f2D31AdF",
-      "txHash": "0x5fec74b358b87cb82ed2598d52f996d4327af687fadb8c6925990a36f372ec73",
+      "txHash": "0xa69543881ae528e63fa54995c0fa6c37edc472d100443cf63eec132344e9a8cf",
       "layout": {
         "solcVersion": "0.8.17",
         "storage": [
@@ -253,7 +253,7 @@
             "slot": "251",
             "type": "t_array(t_address)dyn_storage",
             "contract": "LiquidityPool",
-            "src": "contracts/LiquidityPool.sol:52"
+            "src": "contracts/StableCoinLogic/LiquidityPool.sol:52"
           },
           {
             "label": "USDStable",
@@ -261,7 +261,7 @@
             "slot": "252",
             "type": "t_mapping(t_uint8,t_address)",
             "contract": "LiquidityPool",
-            "src": "contracts/LiquidityPool.sol:59"
+            "src": "contracts/StableCoinLogic/LiquidityPool.sol:59"
           },
           {
             "label": "names",
@@ -269,7 +269,7 @@
             "slot": "253",
             "type": "t_mapping(t_uint8,t_string_storage)",
             "contract": "LiquidityPool",
-            "src": "contracts/LiquidityPool.sol:60"
+            "src": "contracts/StableCoinLogic/LiquidityPool.sol:60"
           },
           {
             "label": "liquidityPool",
@@ -277,7 +277,7 @@
             "slot": "254",
             "type": "t_mapping(t_address,t_mapping(t_uint8,t_uint256))",
             "contract": "LiquidityPool",
-            "src": "contracts/LiquidityPool.sol:68"
+            "src": "contracts/StableCoinLogic/LiquidityPool.sol:68"
           },
           {
             "label": "LPbalanceUSD",
@@ -285,7 +285,7 @@
             "slot": "255",
             "type": "t_mapping(t_uint8,t_uint256)",
             "contract": "LiquidityPool",
-            "src": "contracts/LiquidityPool.sol:69"
+            "src": "contracts/StableCoinLogic/LiquidityPool.sol:69"
           },
           {
             "label": "StakerLiquidity",
@@ -293,7 +293,7 @@
             "slot": "256",
             "type": "t_mapping(t_address,t_uint256)",
             "contract": "LiquidityPool",
-            "src": "contracts/LiquidityPool.sol:70"
+            "src": "contracts/StableCoinLogic/LiquidityPool.sol:70"
           },
           {
             "label": "unstakedMax",
@@ -301,7 +301,7 @@
             "slot": "257",
             "type": "t_mapping(t_address,t_mapping(t_uint8,t_bool))",
             "contract": "LiquidityPool",
-            "src": "contracts/LiquidityPool.sol:71"
+            "src": "contracts/StableCoinLogic/LiquidityPool.sol:71"
           },
           {
             "label": "OldStaker",
@@ -309,7 +309,7 @@
             "slot": "258",
             "type": "t_mapping(t_address,t_bool)",
             "contract": "LiquidityPool",
-            "src": "contracts/LiquidityPool.sol:72"
+            "src": "contracts/StableCoinLogic/LiquidityPool.sol:72"
           },
           {
             "label": "liquidityPoolStakes",
@@ -317,7 +317,7 @@
             "slot": "259",
             "type": "t_mapping(t_address,t_mapping(t_uint8,t_uint256))",
             "contract": "LiquidityPool",
-            "src": "contracts/LiquidityPool.sol:83"
+            "src": "contracts/StableCoinLogic/LiquidityPool.sol:83"
           },
           {
             "label": "totalLiquidity",
@@ -325,7 +325,7 @@
             "slot": "260",
             "type": "t_uint256",
             "contract": "LiquidityPool",
-            "src": "contracts/LiquidityPool.sol:88"
+            "src": "contracts/StableCoinLogic/LiquidityPool.sol:88"
           },
           {
             "label": "epochover",
@@ -333,7 +333,7 @@
             "slot": "261",
             "type": "t_bool",
             "contract": "LiquidityPool",
-            "src": "contracts/LiquidityPool.sol:89"
+            "src": "contracts/StableCoinLogic/LiquidityPool.sol:89"
           },
           {
             "label": "unstakable",
@@ -341,7 +341,7 @@
             "slot": "261",
             "type": "t_bool",
             "contract": "LiquidityPool",
-            "src": "contracts/LiquidityPool.sol:90"
+            "src": "contracts/StableCoinLogic/LiquidityPool.sol:90"
           }
         ],
         "types": {
@@ -414,7 +414,7 @@
     },
     "94c1a2e6522d7aaa6f69f4d51f6b7841df542b82bf9b998457d64cefc985c354": {
       "address": "0x0752c3B9803c7a59601F1A0391d9a6820b81196A",
-      "txHash": "0xfc742228be9d155ec46510320efd83f1ef384ed4de76c64e7349b3058ebe5551",
+      "txHash": "0x1e9bfba1d868c90f290c9f99164d6d7b4c888a389f42ad09fe8b025a5d923f99",
       "layout": {
         "solcVersion": "0.8.17",
         "storage": [
@@ -766,7 +766,7 @@
     },
     "b0518a2e56fed12208949be7c0e1ad9c721b1f4755db8acd950b4289835c3452": {
       "address": "0xcD3bFD04F09D5d1230C7804A9358d6feDb3549A1",
-      "txHash": "0xb3879cc0b275b8422a0fa744b57614dff33007957a1606d1f131f993f54c9f53",
+      "txHash": "0x9bba8a949b716fd4665c697a7725b31755d7ba39f27c8d738071173e68349f37",
       "layout": {
         "solcVersion": "0.8.17",
         "storage": [
@@ -849,7 +849,7 @@
             "slot": "251",
             "type": "t_mapping(t_uint8,t_address)",
             "contract": "TreasuryPool",
-            "src": "contracts/treasuryPool.sol:29"
+            "src": "contracts/StableCoinLogic/treasuryPool.sol:29"
           },
           {
             "label": "names",
@@ -857,7 +857,7 @@
             "slot": "252",
             "type": "t_mapping(t_uint8,t_string_storage)",
             "contract": "TreasuryPool",
-            "src": "contracts/treasuryPool.sol:31"
+            "src": "contracts/StableCoinLogic/treasuryPool.sol:31"
           },
           {
             "label": "Maxminted",
@@ -865,7 +865,7 @@
             "slot": "253",
             "type": "t_bool",
             "contract": "TreasuryPool",
-            "src": "contracts/treasuryPool.sol:33"
+            "src": "contracts/StableCoinLogic/treasuryPool.sol:33"
           },
           {
             "label": "BuynatDisable",
@@ -873,7 +873,7 @@
             "slot": "253",
             "type": "t_bool",
             "contract": "TreasuryPool",
-            "src": "contracts/treasuryPool.sol:34"
+            "src": "contracts/StableCoinLogic/treasuryPool.sol:34"
           },
           {
             "label": "TPbalanceUSD",
@@ -881,7 +881,7 @@
             "slot": "254",
             "type": "t_mapping(t_uint8,t_uint256)",
             "contract": "TreasuryPool",
-            "src": "contracts/treasuryPool.sol:35"
+            "src": "contracts/StableCoinLogic/treasuryPool.sol:35"
           },
           {
             "label": "tPtotalBalance",
@@ -889,7 +889,7 @@
             "slot": "255",
             "type": "t_uint256",
             "contract": "TreasuryPool",
-            "src": "contracts/treasuryPool.sol:38"
+            "src": "contracts/StableCoinLogic/treasuryPool.sol:38"
           },
           {
             "label": "tPtotalBalanceNative",
@@ -897,7 +897,7 @@
             "slot": "256",
             "type": "t_uint256",
             "contract": "TreasuryPool",
-            "src": "contracts/treasuryPool.sol:39"
+            "src": "contracts/StableCoinLogic/treasuryPool.sol:39"
           }
         ],
         "types": {
