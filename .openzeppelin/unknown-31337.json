@@ -414,7 +414,7 @@
     },
     "94c1a2e6522d7aaa6f69f4d51f6b7841df542b82bf9b998457d64cefc985c354": {
       "address": "0x0752c3B9803c7a59601F1A0391d9a6820b81196A",
-      "txHash": "0x1e9bfba1d868c90f290c9f99164d6d7b4c888a389f42ad09fe8b025a5d923f99",
+      "txHash": "0xf6eaaa572ce669f2660454cea470676fb432b72e49329cecf7678cc9274f12b1",
       "layout": {
         "solcVersion": "0.8.17",
         "storage": [
@@ -495,25 +495,25 @@
             "label": "TradeTrack",
             "offset": 0,
             "slot": "251",
-            "type": "t_mapping(t_uint256,t_struct(TradeDetails)5672_storage)",
+            "type": "t_mapping(t_uint256,t_struct(TradeDetails)1807_storage)",
             "contract": "EscrowINRC",
-            "src": "contracts/P2PINRC.sol:70"
+            "src": "contracts/StableCoinLogic/P2PINRC.sol:70"
           },
           {
             "label": "TradeCloneTrack",
             "offset": 0,
             "slot": "252",
-            "type": "t_mapping(t_uint256,t_struct(TradeClone)5685_storage)",
+            "type": "t_mapping(t_uint256,t_struct(TradeClone)1820_storage)",
             "contract": "EscrowINRC",
-            "src": "contracts/P2PINRC.sol:71"
+            "src": "contracts/StableCoinLogic/P2PINRC.sol:71"
           },
           {
             "label": "SwapTrack",
             "offset": 0,
             "slot": "253",
-            "type": "t_mapping(t_uint256,t_struct(SwapDetails)5698_storage)",
+            "type": "t_mapping(t_uint256,t_struct(SwapDetails)1833_storage)",
             "contract": "EscrowINRC",
-            "src": "contracts/P2PINRC.sol:72"
+            "src": "contracts/StableCoinLogic/P2PINRC.sol:72"
           },
           {
             "label": "INRC",
@@ -521,7 +521,7 @@
             "slot": "254",
             "type": "t_address",
             "contract": "EscrowINRC",
-            "src": "contracts/P2PINRC.sol:73"
+            "src": "contracts/StableCoinLogic/P2PINRC.sol:73"
           },
           {
             "label": "Feetoken",
@@ -529,7 +529,7 @@
             "slot": "255",
             "type": "t_address",
             "contract": "EscrowINRC",
-            "src": "contracts/P2PINRC.sol:74"
+            "src": "contracts/StableCoinLogic/P2PINRC.sol:74"
           },
           {
             "label": "TradeExisting",
@@ -537,7 +537,7 @@
             "slot": "256",
             "type": "t_mapping(t_uint256,t_bool)",
             "contract": "EscrowINRC",
-            "src": "contracts/P2PINRC.sol:77"
+            "src": "contracts/StableCoinLogic/P2PINRC.sol:77"
           },
           {
             "label": "SwapInProgress",
@@ -545,7 +545,7 @@
             "slot": "257",
             "type": "t_mapping(t_address,t_mapping(t_uint256,t_bool))",
             "contract": "EscrowINRC",
-            "src": "contracts/P2PINRC.sol:78"
+            "src": "contracts/StableCoinLogic/P2PINRC.sol:78"
           },
           {
             "label": "FeePaidCHT",
@@ -553,7 +553,7 @@
             "slot": "258",
             "type": "t_mapping(t_address,t_mapping(t_uint256,t_bool))",
             "contract": "EscrowINRC",
-            "src": "contracts/P2PINRC.sol:79"
+            "src": "contracts/StableCoinLogic/P2PINRC.sol:79"
           },
           {
             "label": "SwapExisting",
@@ -561,7 +561,7 @@
             "slot": "259",
             "type": "t_mapping(t_uint256,t_bool)",
             "contract": "EscrowINRC",
-            "src": "contracts/P2PINRC.sol:80"
+            "src": "contracts/StableCoinLogic/P2PINRC.sol:80"
           },
           {
             "label": "TradeUpdating",
@@ -569,7 +569,7 @@
             "slot": "260",
             "type": "t_mapping(t_uint256,t_bool)",
             "contract": "EscrowINRC",
-            "src": "contracts/P2PINRC.sol:81"
+            "src": "contracts/StableCoinLogic/P2PINRC.sol:81"
           },
           {
             "label": "TradeCloneUpdating",
@@ -577,7 +577,7 @@
             "slot": "261",
             "type": "t_mapping(t_uint256,t_bool)",
             "contract": "EscrowINRC",
-            "src": "contracts/P2PINRC.sol:82"
+            "src": "contracts/StableCoinLogic/P2PINRC.sol:82"
           },
           {
             "label": "feeCollected",
@@ -585,7 +585,7 @@
             "slot": "262",
             "type": "t_uint256",
             "contract": "EscrowINRC",
-            "src": "contracts/P2PINRC.sol:83"
+            "src": "contracts/StableCoinLogic/P2PINRC.sol:83"
           },
           {
             "label": "CHTBalance",
@@ -593,7 +593,7 @@
             "slot": "263",
             "type": "t_uint256",
             "contract": "EscrowINRC",
-            "src": "contracts/P2PINRC.sol:84"
+            "src": "contracts/StableCoinLogic/P2PINRC.sol:84"
           }
         ],
         "types": {
@@ -621,19 +621,19 @@
             "label": "mapping(uint256 => bool)",
             "numberOfBytes": "32"
           },
-          "t_mapping(t_uint256,t_struct(SwapDetails)5698_storage)": {
+          "t_mapping(t_uint256,t_struct(SwapDetails)1833_storage)": {
             "label": "mapping(uint256 => struct EscrowINRC.SwapDetails)",
             "numberOfBytes": "32"
           },
-          "t_mapping(t_uint256,t_struct(TradeClone)5685_storage)": {
+          "t_mapping(t_uint256,t_struct(TradeClone)1820_storage)": {
             "label": "mapping(uint256 => struct EscrowINRC.TradeClone)",
             "numberOfBytes": "32"
           },
-          "t_mapping(t_uint256,t_struct(TradeDetails)5672_storage)": {
+          "t_mapping(t_uint256,t_struct(TradeDetails)1807_storage)": {
             "label": "mapping(uint256 => struct EscrowINRC.TradeDetails)",
             "numberOfBytes": "32"
           },
-          "t_struct(SwapDetails)5698_storage": {
+          "t_struct(SwapDetails)1833_storage": {
             "label": "struct EscrowINRC.SwapDetails",
             "members": [
               {
@@ -675,7 +675,7 @@
             ],
             "numberOfBytes": "192"
           },
-          "t_struct(TradeClone)5685_storage": {
+          "t_struct(TradeClone)1820_storage": {
             "label": "struct EscrowINRC.TradeClone",
             "members": [
               {
@@ -717,7 +717,7 @@
             ],
             "numberOfBytes": "192"
           },
-          "t_struct(TradeDetails)5672_storage": {
+          "t_struct(TradeDetails)1807_storage": {
             "label": "struct EscrowINRC.TradeDetails",
             "members": [
               {
