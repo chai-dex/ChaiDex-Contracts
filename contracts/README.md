@@ -25,19 +25,66 @@ unstakeAll when 80% not yet unstaked <br />
 stake when amount is zero<br />
 stake when index does not exist<br />
 
-## Treasurypool 
-1. setUSDAddress --onlyOwner -- params(index,Name,token contract address) -- This function is used to update or set the tokens that can be accepted to the pool for stakes(to avoid fake tokens)<br />
-2.Buy --params(index,amount)-- index points to which token is being used to buy and amount.<br />
-3.Redeem --onlyOwner -- params(redeemerAddress,index,amount) -- The owner can send USD stable tokens to redeemer upon confirmation of token burn.<br />
+## TreasuryPool Contract
 
-contract should revert-- <br />
-Everything when paused is true<br />
-Buy when amount is zero<br />
-Buy when index does not exist<br />
+The TreasuryPool contract is responsible for managing a pool of stable coins and native coins.
 
-event Recieved(string USD,uint256 ID, address buyer, uint256 amount,uint256 balanceNew,uint256 UsdBalance); // upon recieve there should be a mint
 
-event Redeemed(string USD, address redeemer, uint256 amount,uint256 balanceNew,uint256 USDbalance); // upon redeem there should be equal burn
+### `initialize()`
+
+Initializes the contract.
+
+### `setMinter(bool _over)`
+
+- **Parameters**:
+  - `_over`: Boolean indicating if minting is allowed.
+
+### `setDisable(bool _disable)`
+
+- **Parameters**:
+  - `_disable`: Boolean indicating if buying using native coins is disabled.
+
+### `pause()`
+
+### `unpause()`
+
+### `setUSDAddress(uint8 _index, string memory _name, address _USD)`
+
+- **Parameters**:
+  - `_index`: Index of the stable coin.
+  - `_name`: Name of the stable coin.
+  - `_USD`: Address of the stable coin.
+
+### `Buy(uint8 _usd, uint256 MintID, uint256 _amount)`
+
+- **Parameters**:
+  - `_usd`: Index of the stable coin.
+  - `MintID`: Unique identifier for the minting.
+  - `_amount`: Amount of stable coins to add.
+
+### `BuyNat(uint256 MintID)`
+
+- **Parameters**:
+  - `MintID`: Unique identifier for the minting.
+
+### `Redeem(address redeemer, uint8 _usd, uint256 _amount)`
+
+- **Parameters**:
+  - `redeemer`: Address of the redeemer.
+  - `_usd`: Index of the stable coin.
+  - `_amount`: Amount of stable coins to redeem.
+
+### `RedeemNat(address redeemer, uint256 _amount)`
+
+- **Parameters**:
+  - `redeemer`: Address of the redeemer.
+  - `_amount`: Amount of native coins to redeem.
+
+### `getTPbalance(uint8 _length )`
+
+- **Parameters**:
+  - `_length`: Length of the array to be returned.
+
 
 
 ## APY contract
