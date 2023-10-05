@@ -21,19 +21,6 @@
 
 - `_usd`: Index of the USD Stable Coin.
 
-### `_stake(uint8 _usd, uint256 _amount)`
-
-- `_usd`: Index of the USD Stable Coin.
-- `_amount`: Amount of USD to Stake.
-
-### `_unStake(uint8 _usd, uint256 _amount)`
-
-- `_usd`: Index of the USD Stable Coin.
-- `_amount`: Amount of USD to Stake.
-
-### `_unstakeAll(uint8 _usd)`
-
-- `_usd`: Index of the USD Stable Coin.
 
 ### `setEpoch(bool _over)`
 
