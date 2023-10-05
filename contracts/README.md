@@ -1,21 +1,63 @@
 # Contracts and their intended functionalities 
-## Liquidity pool
-1. setUSDAddress --onlyOwner -- params(index,Name,token contract address) -- This function is used to update or set the tokens that can be accepted to the pool for stakes(to avoid fake tokens) <br />
-2.stake --params(index,amount)-- index points to which token is being staked and amount. <br />
-3.unstake --params(index,amount)-- index points to which token is being unstaked and amount is always lesser than 80% of staked tokens <br />
-4.unstakeAll --params(index) -- index points to which token is being unstaked completely--Only possible when epoch is over and 80% is withdrawn beforehand <br />
-5.setEpoch --onlyOwner -- params(bool over) -- this is set to true and only then the staker can unstake remaining tokens <br />
+## LiquidityPool Contract
 
-event Stake(string USD, address liquidityProvider, uint256 amount,uint256 USDtotal, uint256 TotalStake);
+### `initialize()`
 
-    event Unstake(
-        string USD,
-        address liquidityProvider,
-        uint256 amount,
-        uint256 USDtotal,
-        uint256 TotalStake
-    );
-    
+### `pause()`
+
+### `unpause()`
+
+### `stake(uint8 _usd, uint256 _amount)`
+
+- `_usd`: Index of the USD Stable Coin.
+- `_amount`: Amount of USD to Stake.
+
+### `unstake(uint8 _usd, uint256 _amount)`
+
+- `_usd`: Index of the USD Stable Coin.
+- `_amount`: Amount of USD to Stake.
+
+### `unstakeAll(uint8 _usd)`
+
+- `_usd`: Index of the USD Stable Coin.
+
+### `_stake(uint8 _usd, uint256 _amount)`
+
+- `_usd`: Index of the USD Stable Coin.
+- `_amount`: Amount of USD to Stake.
+
+### `_unStake(uint8 _usd, uint256 _amount)`
+
+- `_usd`: Index of the USD Stable Coin.
+- `_amount`: Amount of USD to Stake.
+
+### `_unstakeAll(uint8 _usd)`
+
+- `_usd`: Index of the USD Stable Coin.
+
+### `setEpoch(bool _over)`
+
+- `_over`: Boolean indicating if the epoch is over.
+
+### `setUnstake(bool _over)`
+
+- `_over`: Boolean indicating if unstaking is allowed.
+
+### `setUSDAddress(uint8 _index, string memory _name, address _USD)`
+
+- `_index`: Index of the stable coin.
+- `_name`: Name of the stable coin.
+- `_USD`: Address of the stable coin.
+
+### `getLPbalance(uint8 _length )`
+
+- `_length`: Length of the array to be returned.
+
+### `GetStakers(uint64 _num1,uint64 _num2)`
+
+- `_num1`: Start index for fetching stakers.
+- `_num2`: End index for fetching stakers.
+
     
 contract should revert-- <br />
 
