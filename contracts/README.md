@@ -505,6 +505,293 @@ Description:
 
 Emitted when a refund is initiated.
 
+## EscrowNative
+### Functions
+
+#### `initialize`
+
+Parameters: None
+
+Description:
+
+Initializes the contract. It sets up the contract state and should be called only once during deployment.
+
+#### `tradeCreated`
+
+Parameters:
+
+- `_Tradeid`: uint256 - Unique identifier for the trade.
+- `Seller`: address - Address of the seller.
+- `_amount`: uint256 - Amount involved in the trade.
+
+Description:
+
+Emitted when a trade is created.
+
+#### `tradeCloneCreated`
+
+Parameters:
+
+- `_TradeCloneid`: uint256 - Unique identifier for the trade clone.
+- `Seller`: address - Address of the seller.
+
+Description:
+
+Emitted when a trade clone is created.
+
+#### `BuyerDeposit`
+
+Parameters:
+
+- `_TradeCloneID`: uint256 - Unique identifier for the trade clone.
+- `Buyer`: address - Address of the buyer.
+- `_amount`: uint256 - Amount deposited by the buyer.
+
+Description:
+
+Emitted when the buyer makes a deposit.
+
+#### `SwapComplete`
+
+Parameters:
+
+- `_swapID`: uint256 - Unique identifier for the swap.
+- `Parent`: uint256 - Parent trade ID.
+- `Buyer`: address - Address of the buyer.
+
+Description:
+
+Emitted when a swap is completed.
+
+#### `swapCreated`
+
+Parameters:
+
+- `_SwapID`: uint256 - Unique identifier for the swap.
+- `Buyer`: address - Address of the buyer.
+
+Description:
+
+Emitted when a swap is created.
+
+#### `Sellerwithdraw`
+
+Parameters:
+
+- `_TradeCloneid`: uint256 - Unique identifier for the trade clone.
+- `Seller`: address - Address of the seller.
+- `_amount`: uint256 - Amount withdrawn by the seller.
+
+Description:
+
+Emitted when the seller initiates a withdrawal.
+
+#### `refunded`
+
+Parameters:
+
+- `_Tradeid`: uint256 - Unique identifier for the trade.
+- `Seller`: address - Address of the seller.
+- `_amount`: uint256 - Amount refunded.
+
+Description:
+
+Emitted when a refund is initiated.
+
+#### `setSwapID`
+
+Parameters:
+
+- `_id`: uint256 - Unique identifier for the swap.
+- `_parentID`: uint256 - Identifier of the parent trade.
+- `_buyer`: address - Address of the buyer.
+- `_withdrawamount`: uint256 - Amount to be withdrawn by the buyer.
+- `_feeAmount`: uint256 - Fee amount associated with the swap.
+
+Description:
+
+Sets up a swap.
+
+#### `setTradeCloneID`
+
+Parameters:
+
+- `_id`: uint256 - Unique identifier for the trade clone.
+- `_seller`: address - Address of the seller.
+- `_endtime`: uint256 - End time for the trade.
+- `_maxAmount`: uint256 - Maximum balance allowed for the trade.
+- `_feetoBepaid`: uint256 - Fee amount to be paid by the seller.
+
+Description:
+
+Sets up a trade clone.
+
+#### `depositSeller`
+
+Parameters:
+
+- `_seller`: address - Address of the seller.
+- `_id`: uint256 - Unique identifier for the trade.
+- `_amount`: uint256 - Amount to be deposited.
+- `_endtime`: uint256 - End time for the trade.
+
+Description:
+
+Allows the seller to deposit funds for a trade.
+
+#### `depositBuyer`
+
+Parameters:
+
+- `_id`: uint256 - Unique identifier for the trade clone.
+- `_amount`: uint256 - Amount to be deposited.
+
+Description:
+
+Allows the buyer to deposit funds for a trade clone.
+
+#### `withDrawBuyer`
+
+Parameters:
+
+- `_id`: uint256 - Unique identifier for the swap.
+
+Description:
+
+Allows the buyer to initiate a withdrawal.
+
+#### `refundSeller`
+
+Parameters:
+
+- `_id`: uint256 - Unique identifier for the trade.
+
+Description:
+
+Allows the seller to initiate a refund.
+
+#### `withdrawFee`
+
+Parameters: None
+
+Description:
+
+Allows the owner to withdraw collected fees.
+
+#### `pause`
+
+Parameters: None
+
+Description:
+
+Pauses the contract, preventing most functions from being called.
+
+#### `unpause`
+
+Parameters: None
+
+Description:
+
+Unpauses the contract, allowing functions to be called again.
+
+### Reverts
+
+#### `onlyOwner`
+
+Description:
+
+Reverts if the caller is not the owner of the contract.
+
+#### `whenNotPaused`
+
+Description:
+
+Reverts if the contract is paused.
+
+### Events
+
+#### `tradeCreated`
+
+Parameters:
+
+- `_Tradeid`: uint256 - Unique identifier for the trade.
+- `Seller`: address - Address of the seller.
+- `_amount`: uint256 - Amount involved in the trade.
+
+Description:
+
+Emitted when a trade is created.
+
+#### `tradeCloneCreated`
+
+Parameters:
+
+- `_TradeCloneid`: uint256 - Unique identifier for the trade clone.
+- `Seller`: address - Address of the seller.
+
+Description:
+
+Emitted when a trade clone is created.
+
+#### `BuyerDeposit`
+
+Parameters:
+
+- `_TradeCloneID`: uint256 - Unique identifier for the trade clone.
+- `Buyer`: address - Address of the buyer.
+- `_amount`: uint256 - Amount deposited by the buyer.
+
+Description:
+
+Emitted when the buyer makes a deposit.
+
+#### `SwapComplete`
+
+Parameters:
+
+- `_swapID`: uint256 - Unique identifier for the swap.
+- `Parent`: uint256 - Parent trade ID.
+- `Buyer`: address - Address of the buyer.
+
+Description:
+
+Emitted when a swap is completed.
+
+#### `swapCreated`
+
+Parameters:
+
+- `_SwapID`: uint256 - Unique identifier for the swap.
+- `Buyer`: address - Address of the buyer.
+
+Description:
+
+Emitted when a swap is created.
+
+#### `Sellerwithdraw`
+
+Parameters:
+
+- `_TradeCloneid`: uint256 - Unique identifier for the trade clone.
+- `Seller`: address - Address of the seller.
+- `_amount`: uint256 - Amount withdrawn by the seller.
+
+Description:
+
+Emitted when the seller initiates a withdrawal.
+
+#### `refunded`
+
+Parameters:
+
+- `_Tradeid`: uint256 - Unique identifier for the trade.
+- `Seller`: address - Address of the seller.
+- `_amount`: uint256 - Amount refunded.
+
+Description:
+
+Emitted when a refund is initiated.
+
 
 ## Test USD token(only for testing)
 
