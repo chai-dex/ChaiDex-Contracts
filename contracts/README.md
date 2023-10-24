@@ -284,161 +284,227 @@ Same goes for the other way round
 The seller deposits INRC ine exchange for TokenX in chainX which is updated in ChainX where the buyers deposit TokenX for a swap and withdraws equivalent INRC
 
 This involves the requirement of payment of platform fee in terms of Chai Tokens in violation of which the trade will not exist.
+## Escrow ERC contract
 
+## EscrowERC Contract
 
-### Functions and parameters (for ERC)
-1.depositSeller 
+### initialize()
 
-              --address _seller, --seller address     --In ERC contract /ChainX
+**Description:**
+Initializes the EscrowERC contract.
 
-                  uint256 _id, -- unique TradeID which is orgin in the current chain
+### setERCAddress(uint8 _index, string memory _name, address _token)
 
-                 uint256 _amount, -- TradeDeposit Amount
+**Parameters:**
+- `_index`: Index of the ERC20 token.
+- `_name`: Name of the ERC20 token.
+- `_token`: Address of the ERC20 token.
 
-                 uint8 _tokenIndex, -- Tokens are mapped to their addresses so the right token for deposit is chosen
+**Description:**
+Sets the address and name of an ERC20 token.
 
-                 uint256 _endtime -- It is the duration for which the Trade should exist starting from then
+**Reverts:**
+- If called by a non-owner address. (`Ownable: caller is not the owner`)
 
+### pause()
 
-2.setTradeCloneID(OnlyOwner) 
-                       
-                       uint256 _id, 
+**Description:**
+Pauses the contract, preventing further operations.
 
-                       address _seller ,
+**Reverts:**
+- If called by a non-owner address. (`Ownable: caller is not the owner`)
 
-                       uint256 _endtime,
+### unpause()
 
-                      uint256 _maxAmount,
+**Description:**
+Unpauses the contract, allowing operations to resume.
 
-                      uint8 _sellerTokenIndex,
+**Reverts:**
+- If called by a non-owner address. (`Ownable: caller is not the owner`)
 
-                      uint256 _feetoBepaid
+### depositSeller(address _seller, uint256 _id, uint256 _amount, uint8 _tokenIndex, uint256 _endtime)
 
-3.depositBuyer --
-                 
-                 uint256 _id, // This is the ID of a TradeClone for a trade existing on oposite chain
+**Parameters:**
+- `_seller`: Address of the seller.
+- `_id`: Unique identifier for the trade.
+- `_amount`: Amount of tokens to deposit.
+- `_tokenIndex`: Index of the token used.
+- `_endtime`: End time for the trade.
 
-                 uint256 _amount // the amount to be deposited 
+**Description:**
+Allows the seller to deposit tokens for a trade.
 
-4. setSwapID
+**Reverts:**
+- If not called by the seller. (`unauthorized`)
+- If the trade already exists. (`trade already exists`)
+- If the amount is zero. (`amount cannot be zero`)
+- If the end time is not greater than zero. (`Endtime must be greater`)
 
-                (uint256  _id,
-                uint256 _parentID,
-                address _buyer,
-                uint256 _withdrawamount,
-                uint256 _feeAmount) --OnlyOwner
+### depositBuyer(uint256 _id, uint256 _amount, uint8 _tokenIndex)
 
-here _id is the SwapID that we generate for the deposit in other chain
+**Parameters:**
+- `_id`: Unique identifier for the trade.
+- `_amount`: Amount of tokens to deposit.
+- `_tokenIndex`: Index of the token used.
 
-parentID is the TradeID from which the buyer will withdraw 
+**Description:**
+Allows the buyer to deposit tokens for a trade.
 
-feeAmount is the fee that will be deducted from withdraw amount before sending it to him.
+**Reverts:**
+- If the amount is zero. (`amount cannot be zero`)
+- If the trade does not exist. (`trade Does not exist`)
+- If the trade clone is updating. (`Please send transaction in some time`)
+- If the buyer has already opted for the trade. (`you can only opt for a trade once`)
+- If the seller is the same as the buyer. (`seller cant buy`)
+- If the trade no longer has funds. (`The trade no longer has funds`)
+- If the trade has ended. (`This trade has ended`)
+- If the token is not accepted. (`token not accepted`)
+- If the amount is too low. (`amount too low`)
 
-5.withDrawBuyer
+### withDrawBuyer(uint256 _id)
 
-              (uint256 _id)
+**Parameters:**
+- `_id`: Unique identifier for the swap.
 
-Here The ID is swapID that was updated earlier 
+**Description:**
+Allows the buyer to withdraw their funds from a swap.
 
-6. refundSeller
+**Reverts:**
+- If the swap does not exist. (`swap does not exist`)
+- If the withdrawal is already completed. (`withdraw completed`)
+- If the parent trade is updating. (`Please send transaction in some time`)
+- If the trade has ended or does not exist. (`Trade has ended or does not exist`)
+- If the time has exceeded and the trade no longer exists. (`time has exceeded trade no longer exists`)
+- If the amount exceeds the trade amount. (`amount exceeds trade amount please recheck`)
 
-              (uint256 _id)
+### refundSeller(uint256 _id)
 
-Here ID is the trade ID so that after time is over the seller can take back any remaining funds.
+**Parameters:**
+- `_id`: Unique identifier for the trade.
 
-7. Only in INRC -- PayFeeCHT
+**Description:**
+Allows the seller to refund the buyer.
 
-              (uint256 _trade    
-              uint256 _amount)
+**Reverts:**
+- If the trade is updating. (`Please send transaction in some time`)
+- If not called by the seller. (`unauthorized`)
+- If the trade does not exist. (`stop get some help`)
+- If there are no funds available for refund. (`there are no funds available for refund`)
+- If the trade is still ongoing. (`the trade is ongoing`)
 
-The buyer or seller will have to pay fee before initiating the deposit overriding which will lose their deposit amount.
+### setSwapID(uint256 _id, uint256 _parentID, address _buyer, uint256 _withdrawamount, uint256 _feeAmount)
 
-8.setUSDAddress --onlyOwner -- params(index,Name,token contract address) 
+**Parameters:**
+- `_id`: Unique identifier for the swap.
+- `_parentID`: Unique identifier for the parent trade.
+- `_buyer`: Address of the buyer.
+- `_withdrawamount`: Amount to withdraw in the swap.
+- `_feeAmount`: Fee amount for the swap.
 
-9.withdrawFee
-             
-             (uint8 _index) --only owner --transfers all fee collected all fee collected
+**Description:**
+Sets the details for a swap.
 
-### Functions and parameters (for INRC and Native)
+**Reverts:**
+- If the swap ID already exists. (`swap still in progress`)
+- If the parent trade does not exist. (`Trade has ended or does not exist`)
+- If the amount is zero. (`non zero values only`)
+- If the amount should be greater than the fee. (`amount should be greater than fee`)
+- If the address is invalid. (`invalid address`)
 
-#### For INRC approval of INRC is needed before calling deposit functions 
+### withdrawFee(uint8 _index)
 
-#### For Natives an attached deposit of equivalent amount must be sent i.e _amount==msg.value
-1.depositSeller 
+**Parameters:**
+- `_index`: Index of the token.
 
-              --address _seller, --seller address     --In ERC contract /ChainX
+**Description:**
+Allows the owner to withdraw the collected fee for a specific token.
 
-                  uint256 _id, -- unique TradeID which is orgin in the current chain
+**Reverts:**
+- If there are no fees available. (`no fees available`)
+- If called by a non-owner address. (`Ownable: caller is not the owner`)
+## Events
+### tradeCreated
 
-                 uint256 _amount, -- TradeDeposit Amount
+Parameters:
 
-                 uint256 _endtime -- It is the duration for which the Trade should exist starting from then
+- `_Tradeid`: Unique identifier for the trade.
+- `Seller`: Address of the seller.
+- `_amount`: Amount of tokens involved in the trade.
 
+Description:
 
-2.setTradeCloneID(OnlyOwner) 
+Emitted when a trade is created.
 
-                       uint256 _id, 
-                       address _seller ,
-                       uint256 _endtime,
-                      uint256 _maxAmount,
-                      uint256 _feetoBepaid
+### tradeCloneCreated
 
-3.depositBuyer --
-                   
-                 uint256 _id, // This is the ID of a TradeClone for a trade existing on oposite chain
+Parameters:
 
-                 uint256 _amount // the amount to be deposited 
+- `_TradeCloneid`: Unique identifier for the cloned trade.
+- `Seller`: Address of the seller.
 
-4. setSwapID
+Description:
 
-               (uint256  _id,
-               uint256 _parentID,
-               address _buyer,
-               uint256 _withdrawamount,
-               uint256 _feeAmount) --OnlyOwner
+Emitted when a cloned trade is created.
 
-here _id is the SwapID that we generate for the deposit in other chain
+### BuyerDeposit
 
-parentID is the TradeID from which the buyer will withdraw 
+Parameters:
 
-feeAmount is the fee that will be deducted from withdraw amount before sending it to him.
+- `_TradeCloneID`: Unique identifier for the cloned trade.
+- `Buyer`: Address of the buyer.
+- `_amount`: Amount of tokens deposited by the buyer.
 
-5.withDrawBuyer
-                 
-                 (uint256 _id)
+Description:
 
-Here The ID is swapID that was updated earlier 
+Emitted when a buyer deposits tokens for a trade.
 
-6. refundSeller  
-                                        
-               (uint256 _id)
+### SwapComplete
 
-Here ID is the trade ID so that after time is over the seller can take back any remaining funds.
+Parameters:
 
-7. Only in INRC -- PayFeeCHT
-                
-                (uint256 _tradeid, // this can be swapID or tradeID or tradeCloneID 
-                                  // No conflicts will be there as each are unique and the only thng this does is set feepaid to true onchain
-               uint256 _amount)  //without which trades or swaps wont happen
-                  
+- `_swapID`: Unique identifier for the swap.
+- `Parent`: Parent trade ID.
+- `Buyer`: Address of the buyer.
 
-The buyer or seller will have to pay fee before initiating the deposit overriding which will lose their deposit amount.
+Description:
 
+Emitted when a swap is completed.
 
-#### Events Emitted 
-event tradeCreated (uint256 _Tradeid,address Seller,uint256 _amount);
+### swapCreated
 
-event tradeCloneCreated (uint256 _TradeCloneid,address Seller);
+Parameters:
 
-event BuyerDeposit(uint256 _TradeCloneID,address Buyer,uint256 _amount);
+- `_SwapID`: Unique identifier for the swap.
+- `Buyer`: Address of the buyer.
 
-event SwapComplete(uint256 _swapID,uint256 Parent,address Buyer);
+Description:
 
-event swapCreated(uint256 _SwapID,address Buyer);
+Emitted when a swap is created.
 
-event Sellerwithdraw(uint256 _TradeCloneid,address Seller,uint256 _amount);
+### Sellerwithdraw
 
-event refunded(uint256 _Tradeid,address Seller,uint256 _amount);
+Parameters:
+
+- `_TradeCloneid`: Unique identifier for the cloned trade.
+- `Seller`: Address of the seller.
+- `_amount`: Amount of tokens withdrawn by the seller.
+
+Description:
+
+Emitted when a seller withdraws tokens from a cloned trade.
+
+### refunded
+
+Parameters:
+
+- `_Tradeid`: Unique identifier for the trade.
+- `Seller`: Address of the seller.
+- `_amount`: Amount of tokens refunded to the seller.
+
+Description:
+
+Emitted when a refund is initiated.
+
 
 ## Test USD token(only for testing)
 
