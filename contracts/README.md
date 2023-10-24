@@ -1,119 +1,258 @@
 # Contracts and their intended functionalities 
 ## LiquidityPool Contract
 
-### `initialize()`
+### initialize()
 
-### `pause()`
+**Description:**
+Initializes the LiquidityPool contract.
 
-### `unpause()`
+### pause()
 
-### `stake(uint8 _usd, uint256 _amount)`
+**Description:**
+Pauses the contract, preventing further operations.
 
-- `_usd`: Index of the USD Stable Coin.
-- `_amount`: Amount of USD to Stake.
+**Reverts:**
+- If called by a non-owner address.
 
-### `unstake(uint8 _usd, uint256 _amount)`
+### unpause()
 
-- `_usd`: Index of the USD Stable Coin.
-- `_amount`: Amount of USD to Stake.
+**Description:**
+Unpauses the contract, allowing operations to resume.
 
-### `unstakeAll(uint8 _usd)`
+**Reverts:**
+- If called by a non-owner address.
 
-- `_usd`: Index of the USD Stable Coin.
+### setEpoch(bool _over)
 
-
-### `setEpoch(bool _over)`
-
+**Parameters:**
 - `_over`: Boolean indicating if the epoch is over.
 
-### `setUnstake(bool _over)`
+**Description:**
+Sets the status of the current epoch.
 
+**Reverts:**
+- If called by a non-owner address.
+
+### setUnstake(bool _over)
+
+**Parameters:**
 - `_over`: Boolean indicating if unstaking is allowed.
 
-### `setUSDAddress(uint8 _index, string memory _name, address _USD)`
+**Description:**
+Sets whether unstaking is currently allowed or not.
 
+**Reverts:**
+- If called by a non-owner address.
+
+### setUSDAddress(uint8 _index, string memory _name, address _USD)
+
+**Parameters:**
 - `_index`: Index of the stable coin.
 - `_name`: Name of the stable coin.
 - `_USD`: Address of the stable coin.
 
-### `getLPbalance(uint8 _length )`
+**Description:**
+Sets the address and name of a stable coin.
 
+**Reverts:**
+- If called by a non-owner address.
+
+### stake(bytes32 _id, uint8 _usd, uint256 _amount)
+
+**Parameters:**
+- `_id`: Unique identifier for the stake.
+- `_usd`: Index of the USD Stable Coin.
+- `_amount`: Amount of USD to Stake.
+
+**Description:**
+Stakes a specified amount of USD in the LiquidityPool.
+
+**Reverts:**
+- If `_amount` is zero.
+
+### unstake(uint8 _usd, uint256 _amount)
+
+**Parameters:**
+- `_usd`: Index of the USD Stable Coin.
+- `_amount`: Amount of USD to Unstake.
+
+**Description:**
+Unstakes a specified amount of USD from the LiquidityPool.
+
+**Reverts:**
+- If `_amount` is greater than or equal to 80% of the balance.
+
+### unstakeAll(uint8 _usd)
+
+**Parameters:**
+- `_usd`: Index of the USD Stable Coin.
+
+**Description:**
+Unstakes all the available USD from the LiquidityPool for a specific stable coin.
+
+**Reverts:**
+- If epoch is not over.
+- If unstake is not allowed.
+
+### getLPbalance(uint8 _length )
+
+**Parameters:**
 - `_length`: Length of the array to be returned.
 
-### `GetStakers(uint64 _num1,uint64 _num2)`
+**Description:**
+Returns the balance of the Liquidity Pool.
 
+### GetStakers(uint64 _num1, uint64 _num2)
+
+**Parameters:**
 - `_num1`: Start index for fetching stakers.
 - `_num2`: End index for fetching stakers.
 
-    
-contract should revert-- <br />
+**Description:**
+Returns a list of stakers within a specified range.
 
-unstakeall when epoch is false<br />
-Everything when paused is true <br />
-unstakeAll when 80% not yet unstaked <br />
-stake when amount is zero<br />
-stake when index does not exist<br />
+---
+
+### Events
+
+#### Stake
+
+**Parameters:**
+- `USD`: The name of the USD Stable Coin.
+- `stakeID`: Unique identifier for the stake.
+- `liquidityProvider`: Address of the liquidity provider.
+- `amount`: Amount of USD staked.
+- `USDtotal`: Total USD staked by the provider.
+- `TotalStake`: Total USD staked in the pool.
+
+#### Unstake
+
+**Parameters:**
+- `USD`: The name of the USD Stable Coin.
+- `liquidityProvider`: Address of the liquidity provider.
+- `amount`: Amount of USD unstaked.
+- `USDtotal`: Total USD staked by the provider after unstaking.
+- `TotalStake`: Total USD staked in the pool after unstaking.
+
 
 ## TreasuryPool Contract
 
 The TreasuryPool contract is responsible for managing a pool of stable coins and native coins.
 
+## TreasuryPool Contract
 
-### `initialize()`
+### initialize()
 
-Initializes the contract.
+**Description:**
+Initializes the TreasuryPool contract.
 
-### `setMinter(bool _over)`
+### setMinter(bool _over)
 
-- **Parameters**:
-  - `_over`: Boolean indicating if minting is allowed.
+**Parameters:**
+- `_over`: Boolean indicating if the maximum minting is reached.
 
-### `setDisable(bool _disable)`
+**Description:**
+Sets the status of the maximum minting.
 
-- **Parameters**:
-  - `_disable`: Boolean indicating if buying using native coins is disabled.
+### setDisable(bool _disable)
 
-### `pause()`
+**Parameters:**
+- `_disable`: Boolean indicating if buying using native coins is disabled.
 
-### `unpause()`
+**Description:**
+Sets whether buying using native coins is currently allowed or not.
 
-### `setUSDAddress(uint8 _index, string memory _name, address _USD)`
+### pause()
 
-- **Parameters**:
-  - `_index`: Index of the stable coin.
-  - `_name`: Name of the stable coin.
-  - `_USD`: Address of the stable coin.
+**Description:**
+Pauses the contract, preventing further operations.
 
-### `Buy(uint8 _usd, uint256 MintID, uint256 _amount)`
+**Reverts:**
+- If called by a non-owner address. (`Ownable: caller is not the owner`)
 
-- **Parameters**:
-  - `_usd`: Index of the stable coin.
-  - `MintID`: Unique identifier for the minting.
-  - `_amount`: Amount of stable coins to add.
+### unpause()
 
-### `BuyNat(uint256 MintID)`
+**Description:**
+Unpauses the contract, allowing operations to resume.
 
-- **Parameters**:
-  - `MintID`: Unique identifier for the minting.
+**Reverts:**
+- If called by a non-owner address. (`Ownable: caller is not the owner`)
 
-### `Redeem(address redeemer, uint8 _usd, uint256 _amount)`
+### setUSDAddress(uint8 _index, string memory _name, address _USD)
 
-- **Parameters**:
-  - `redeemer`: Address of the redeemer.
-  - `_usd`: Index of the stable coin.
-  - `_amount`: Amount of stable coins to redeem.
+**Parameters:**
+- `_index`: Index of the stable coin.
+- `_name`: Name of the stable coin.
+- `_USD`: Address of the stable coin.
 
-### `RedeemNat(address redeemer, uint256 _amount)`
+**Description:**
+Sets the address and name of a stable coin.
 
-- **Parameters**:
-  - `redeemer`: Address of the redeemer.
-  - `_amount`: Amount of native coins to redeem.
+**Reverts:**
+- If called by a non-owner address. (`Ownable: caller is not the owner`)
 
-### `getTPbalance(uint8 _length )`
+### Buy(uint8 _usd, bytes32 MintID, uint256 _amount)
 
-- **Parameters**:
-  - `_length`: Length of the array to be returned.
+**Parameters:**
+- `_usd`: Index of the USD Stable Coin.
+- `MintID`: Unique identifier for the mint.
+- `_amount`: Amount of USD to buy.
 
+**Description:**
+Adds funds to the Treasury Pool and emits a `Recieved` event.
+
+**Reverts:**
+- If `_amount` is zero. (`amount cannot be 0`)
+- If maximum minting is reached. (`Maximum minting reached`)
+
+### BuyNat(bytes32 MintID)
+
+**Parameters:**
+- `MintID`: Unique identifier for the mint.
+
+**Description:**
+Allows buying using native coins and emits a `Recieved` event.
+
+**Reverts:**
+- If the amount sent is zero. (`amount cannot be 0`)
+- If maximum minting is reached. (`Maximum minting reached`)
+- If buying using native coins is disabled. (`Cannot buy using native coins anymore`)
+
+### Redeem(address redeemer, uint8 _usd, uint256 _amount)
+
+**Parameters:**
+- `redeemer`: Address of the redeemer.
+- `_usd`: Index of the USD Stable Coin.
+- `_amount`: Amount of USD to redeem.
+
+**Description:**
+Authorizes the user's redeem request, sends them the funds, and deducts equivalent inrc.
+
+**Reverts:**
+- If `_amount` is zero. (`amount cannot be 0`)
+- If the balance is insufficient for redemption. (`Not enough balance`)
+
+### RedeemNat(address redeemer, uint256 _amount)
+
+**Parameters:**
+- `redeemer`: Address of the redeemer.
+- `_amount`: Amount of native coins to redeem.
+
+**Description:**
+Authorizes the user's native coin redeem request, sends them the funds, and deducts equivalent inrc.
+
+**Reverts:**
+- If `_amount` is zero. (`amount cannot be 0`)
+- If maximum minting is reached. (`Maximum minting reached`)
+- If buying using native coins is disabled. (`Cannot buy using native coins anymore`)
+
+### getTPbalance(uint8 _length )
+
+**Parameters:**
+- `_length`: Length of the array to be returned.
+
+**Description:**
+Returns the balance of the Treasury Pool.
 
 
 ## APY contract
