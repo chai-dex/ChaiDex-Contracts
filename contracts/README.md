@@ -410,7 +410,13 @@ Sets the details for a swap.
 - If the amount is zero. (`non zero values only`)
 - If the amount should be greater than the fee. (`amount should be greater than fee`)
 - If the address is invalid. (`invalid address`)
+### setTradeCloneID(bytes32 _id, address _seller ,uint256 _endtime,uint256 _maxAmount,uint8[3] memory _sellerTokenIndex ,uint256[3] memory _convertionFactors ,uint256 _feetoBepaid)
 
+**Parameters:**
+- `_id` : New tradeclone ID
+- `_convertionFactor` : the factor of convertion between selected token and the seller token
+eg: if 1 eth listed @ 100 USDC as first token and 200 Matic as 2nd token
+convertion factor for first one is 0.001*10**18 and for matic is 0.002*10**18
 ### withdrawFee(uint8 _index)
 
 **Parameters:**
