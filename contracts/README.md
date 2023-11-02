@@ -798,6 +798,234 @@ Description:
 
 Emitted when a refund is initiated.
 
+# P2pIntrachain 
+
+## Functions
+
+### `initialize()`
+
+Initializes the contract.
+
+#### Parameters
+
+None
+
+#### Revert Conditions
+
+None
+
+#### Events Emitted
+
+None
+
+### `pause()`
+
+Pauses the contract. Only callable by the owner.
+
+#### Parameters
+
+None
+
+#### Revert Conditions
+
+- Must be called by the owner.
+
+#### Events Emitted
+
+None
+
+### `unpause()`
+
+Unpauses the contract. Only callable by the owner.
+
+#### Parameters
+
+None
+
+#### Revert Conditions
+
+- Must be called by the owner.
+
+#### Events Emitted
+
+None
+
+### `setERCAddress(uint8 _index, string memory _name, address _token)`
+
+Sets the address for a specific ERC20 token.
+
+#### Parameters
+
+- `_index` (uint8): Index of the token.
+- `_name` (string): Name of the token.
+- `_token` (address): Address of the token.
+
+#### Revert Conditions
+
+- Must not be paused.
+- Must be called by the owner.
+
+#### Events Emitted
+
+None
+
+### `setConstantFee(uint256 _percentage)`
+
+Sets the constant fee percentage.
+
+#### Parameters
+
+- `_percentage` (uint256): The fee percentage.
+
+#### Revert Conditions
+
+- Must not be paused.
+- Must be called by the owner.
+
+#### Events Emitted
+
+None
+
+### `depositSeller(address _seller, bytes32 _id, uint256 _amount, uint8 _tokenIndex, uint256 _endtime, uint8[3] memory _sellerTokenIndex, uint256[3] memory _convertionFactors)`
+
+Deposits funds from the seller for a trade.
+
+#### Parameters
+
+- `_seller` (address): Address of the seller.
+- `_id` (bytes32): ID of the trade.
+- `_amount` (uint256): Amount to deposit.
+- `_tokenIndex` (uint8): Index of the token.
+- `_endtime` (uint256): Endtime of the trade.
+- `_sellerTokenIndex` (uint8[3] memory): Array of seller token indices.
+- `_convertionFactors` (uint256[3] memory): Array of conversion factors.
+
+#### Revert Conditions
+
+- Must not be paused.
+- Sender must be the seller.
+- Trade must not already exist.
+- Amount must be greater than 0.
+- Endtime must be greater than 0.
+
+#### Events Emitted
+
+- `tradeCreated(bytes32 _Tradeid, address Seller, uint256 _amount)`
+
+### `depositSeller(address _seller, bytes32 _id, uint256 _amount, uint256 _endtime, uint8[3] memory _sellerTokenIndex, uint256[3] memory _convertionFactors)`
+
+Deposits funds from the seller for a trade with ETH.
+
+#### Parameters
+
+- `_seller` (address): Address of the seller.
+- `_id` (bytes32): ID of the trade.
+- `_amount` (uint256): Amount to deposit.
+- `_endtime` (uint256): Endtime of the trade.
+- `_sellerTokenIndex` (uint8[3] memory): Array of seller token indices.
+- `_convertionFactors` (uint256[3] memory): Array of conversion factors.
+
+#### Revert Conditions
+
+- Must not be paused.
+- Sender must be the seller.
+- Trade must not already exist.
+- Amount must be greater than 0.
+- Value must be greater than 0.
+- Endtime must be greater than 0.
+
+#### Events Emitted
+
+- `tradeCreated(bytes32 _Tradeid, address Seller, uint256 _amount)`
+
+### `depositBuyer(bytes32 _id, uint256 _amount, uint8 _tokenIndex)`
+
+Deposits funds from the buyer for a trade.
+
+#### Parameters
+
+- `_id` (bytes32): ID of the trade.
+- `_amount` (uint256): Amount to deposit.
+- `_tokenIndex` (uint8): Index of the token.
+
+#### Revert Conditions
+
+- Must not be paused.
+- Amount must be greater than 0.
+- Trade must exist.
+- Token must be accepted for the trade.
+- Funds must be available for the trade.
+- Trade must not have ended.
+- Seller address must be valid.
+- Buyer cannot be the seller.
+
+#### Events Emitted
+
+- `BuyerDeposit(bytes32 _TradeCloneID, address Buyer, uint256 _amount, uint256 recievedAmount)`
+
+### `depositBuyer(bytes32 _id, uint256 _amount)`
+
+Deposits funds from the buyer for a trade with ETH.
+
+#### Parameters
+
+- `_id` (bytes32): ID of the trade.
+- `_amount` (uint256): Amount to deposit.
+
+#### Revert Conditions
+
+- Must not be paused.
+- Amount must be greater than 0.
+- Trade must exist.
+- Token must be accepted for the trade.
+- Funds must be available for the trade.
+- Trade must not have ended.
+- Seller address must be valid.
+- Buyer cannot be the seller.
+
+#### Events Emitted
+
+- `BuyerDeposit(bytes32 _TradeCloneID, address Buyer, uint256 _amount, uint256 recievedAmount)`
+
+### `refundSeller(bytes32 _id)`
+
+Refunds the seller for a trade.
+
+#### Parameters
+
+- `_id` (bytes32): ID of the trade.
+
+#### Revert Conditions
+
+- Must not be paused.
+- Trade update must not be in progress.
+- Sender must be the seller.
+- Trade must exist.
+- Funds must be available for refund.
+- Trade must have ended.
+
+#### Events Emitted
+
+- `refunded(bytes32 _Tradeid, address Seller, uint256 _amount)`
+
+### `withdrawFee(uint8 _index)`
+
+Withdraws collected fees.
+
+#### Parameters
+
+- `_index` (uint8): Index of the token.
+
+#### Revert Conditions
+
+- Must not be paused.
+- Fee must be available for withdrawal.
+
+#### Events Emitted
+
+None
+
+
 
 ## Test USD token(only for testing)
 
